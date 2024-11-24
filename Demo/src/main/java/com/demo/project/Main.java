@@ -2,6 +2,7 @@ package demo.project;
 
 import demo.project.model.Order;
 import demo.project.repo.OrderRepository;
+import demo.project.service.Box;
 import demo.project.service.InMemoryOrderRepository;
 import demo.project.service.ServiceOrder;
 
@@ -69,6 +70,11 @@ public class Main {
     dogList.add(new Dog());
     method2(dogList);
 
+    method2(animalList);
+
+//        Box<Integer> box = new Box<>();
+//        box.setT(Integer.valueOf(10));
+//        box.show(Double.valueOf(5));
     }
 
     public static void method(Animal[] animals){
@@ -76,5 +82,6 @@ public class Main {
     }
 
     public static void method2(List<? extends Animal> animals){
+        animals.add(new Dog()); // only read !!!
     }
 }
