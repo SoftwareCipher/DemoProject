@@ -5,6 +5,7 @@ import demo.project.model.Animal;
 import demo.project.model.Dog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -72,12 +73,19 @@ public class Main {
 //        box.setT(Integer.valueOf(10));
 //        box.show(Double.valueOf(5));
 
+//
+//        MyList<Integer> myList = new MyList<>();
+//        myList.add(15);
+//        myList.add(20);
+//        myList.add(30);
+//        System.out.println(myList.get(2));
 
-        MyList<Integer> myList = new MyList<>();
-        myList.add(15);
-        myList.add(20);
-        myList.add(30);
-        System.out.println(myList.get(2));
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("A");
+        arrayList.add("B");
+
+        arrayList.add(2, "C");
+        System.out.println(arrayList);
     }
 
     public static void method(Animal[] animals){
