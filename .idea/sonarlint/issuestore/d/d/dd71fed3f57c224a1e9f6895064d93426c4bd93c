@@ -1,18 +1,5 @@
 
-Ä
-java:S1186*"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“ûŠó8«ÔÊ¶2J$d5484381-f143-4d59-bb14-99ac6624bf36
-Ä
-java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÒŠùÇ8¬ÔÊ¶2J$50fae9c4-d817-468c-b92b-754fe98bf9de
-Ä
-java:S11862"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(š›‹ÿ8¬ÔÊ¶2J$cebd8153-4623-4a25-8783-6836b6b76232
-É
-java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü‘Ôûÿÿÿÿ8¬ÔÊ¶2J$227bc1e7-f5c7-41de-b637-54f7cb0f931e
-É
-java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(óÆ×­ıÿÿÿÿ8¬ÔÊ¶2J$313c6ed6-01df-4c94-9202-a5ddad24fb8f
-Ä
-java:S1186>"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ûÄ•8ÏËÊ¶2J$77f63ff6-c9f9-4388-9d0c-a0e80810be44
-É
-java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ş‚ÄÔıÿÿÿÿ8œ³Ê¶2J$15054ffa-22da-46a8-b90c-5407564a5966
-~	java:S125K"<This block of commented-out lines of code should be removed.(®èÓ8´ÔÊ¶2J$b0cfc22b-6d70-4800-a3ff-a8229f9e6511
-s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¸ÔÊ¶2J$f2bf9da9-ad14-4953-adbb-fd4971bad380
+}	java:S125L"<This block of commented-out lines of code should be removed.(„ìÒx8ô±¥É·2J$bfd3110f-7df9-4ab6-8c1d-f86ea2e810f5
+„
+java:S1126W"AReplace this if-then-else statement by a single return statement.(¡Ğ¡8°ã¢É·2J$2f82ba9f-dfbc-451c-a3d7-7f9bb1a7f3f6
+~	java:S125i"<This block of commented-out lines of code should be removed.(®èÓ8²ã¢É·2J$9fc0f62d-db3b-4b1b-8347-fab177d15fde

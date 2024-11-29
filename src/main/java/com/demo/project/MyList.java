@@ -1,6 +1,5 @@
 package com.demo.project;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyList<T> {
@@ -39,32 +38,63 @@ public class MyList<T> {
         size++;
     }
 
-    public static <T> MyList<T> of(T ... elements){
-
+    public static <T> MyList<T> of(T... elements){
+        MyList<T> list = new MyList<>();
+        for(T e: elements){
+            list.add(e);
+        }
+        return list;
     }
 
-    public T getFirst(){
-
+    public T getFirst() {
+        if (size == 0) {
+            throw new IllegalStateException("Array is empty");
+        }
+        return (T) objects[0];
     }
 
-    public T getLast(){
-
+    public T getLast() {
+        if (size == 0) {
+            throw new IllegalStateException("Array is empty");
+        }
+        return (T) objects[size - 1];
     }
 
     public T remove(int index){
-
+        if(checkIndex(index)){
+            T removeElement = (T) objects[index];
+            for(int i = index; i < size - 1; i++){
+                objects[i] = objects[i + 1];
+            }
+            objects[--size] = null;
+            return removeElement;
+        }
+        throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
     }
 
     public boolean contains(T element){
+        // return Arrays.asList(objects).contains(element);
 
+        for(int i = 0; i < objects.length; i++){
+            if(objects[i].equals(element)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean isEmpty(){
-
+        if(size == 0){
+            return true;
+        }
+        return false;
     }
 
     public void clear(){
-
+        for(int i = 0; i < objects.length; i++){
+            objects[i] = null;
+        }
+        size = 0;
     }
 
     public T get(int index) {

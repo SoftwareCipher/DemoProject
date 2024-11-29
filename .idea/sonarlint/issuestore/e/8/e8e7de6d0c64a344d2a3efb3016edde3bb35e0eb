@@ -1,16 +1,28 @@
 
 Ä
-java:S1186["€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úƒ¶8µÑ‡¶2J$df904863-b08f-486c-96f9-3fcc04922b6a
-~	java:S125"<This block of commented-out lines of code should be removed.(©·Ïê8¹Ñ‡¶2J$edd63615-4981-4fad-b78d-2f3a0a40a095
-~	java:S125'"<This block of commented-out lines of code should be removed.(¶Ô—Õ8¹Ñ‡¶2J$b64b16ea-de0d-499c-8a8b-6879ef95f1e3
-ƒ	java:S1250"<This block of commented-out lines of code should be removed.(şåä®ûÿÿÿÿ8¹Ñ‡¶2J$e00b19f4-5062-4775-9b93-ba71ce9ea8f4
-ƒ	java:S1256"<This block of commented-out lines of code should be removed.(Øà¼©üÿÿÿÿ8¹Ñ‡¶2J$2ed2ee83-bccc-4d07-b34b-fa3728343636
-~	java:S125H"<This block of commented-out lines of code should be removed.(êàá„8¹Ñ‡¶2J$e566e4e4-42f9-4a76-830e-7ac817b1a377
-ƒ	java:S125M"<This block of commented-out lines of code should be removed.(õöö¤ûÿÿÿÿ8í·É¶2J$7ed34c40-45ce-4bd5-8042-6bf9d66aec02
-r	java:S106X"+Replace this use of System.out by a logger.(ëÊĞüÿÿÿÿÿ8í©¹É¶2J$6a1a3fae-b83a-466a-b11d-92dd0a10180e
-|
-java:S1128"4Remove this unused import 'com.demo.project.MyList'.(ÃäíÆûÿÿÿÿ8¢í·É¶2J$2490bb5d-eabe-4dac-b1b5-e60a5c08c20f
+java:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úƒ¶8µÑ‡¶2J$f7eb4e14-17e2-44db-acf0-ee92141cb45c
+r	java:S106`"+Replace this use of System.out by a logger.(ùÄûšşÿÿÿÿ8‡ó¼É·2J$1bf62393-37c7-424a-8573-9fcc71bc5599
+~	java:S125"<This block of commented-out lines of code should be removed.(©·Ïê8¹Ñ‡¶2J$16aaccbe-d84d-44d2-b5ec-334c684f50f4
+~	java:S125+"<This block of commented-out lines of code should be removed.(¶Ô—Õ8±ºìœ·2J$64e48eda-d6aa-45ad-bc37-66efc71988b9
+ƒ	java:S1254"<This block of commented-out lines of code should be removed.(şåä®ûÿÿÿÿ8±ºìœ·2J$7d7c72d7-ade0-43eb-9fcd-281b18983e0e
+ƒ	java:S125:"<This block of commented-out lines of code should be removed.(Øà¼©üÿÿÿÿ8²ºìœ·2J$a30ef54b-5dc8-449f-9b57-4aba3e85d77d
+~	java:S125L"<This block of commented-out lines of code should be removed.(êàá„8²ºìœ·2J$fe00f555-0304-41d8-98d0-edb52a78a126
+ƒ	java:S125Q"<This block of commented-out lines of code should be removed.(õöö¤ûÿÿÿÿ8²ºìœ·2J$da298ae3-fd1a-44b0-93f9-e96b3e31fbb1
+ƒ	java:S125W"<This block of commented-out lines of code should be removed.(´ƒò·üÿÿÿÿ8²ºìœ·2J$1f935e61-679c-4155-9dad-6d7d962c8c2f
+œ
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ÃäíÆûÿÿÿÿ8åËåÆ·2J$21433176-b0ea-47da-a2b9-b86140b841c7
 v
-java:S1128"3Remove this unused import 'demo.project.model.Dog'.(€¬®8ˆåã•¶2J$56fc00ca-ba0e-4bd3-9d60-deb74a7b33f8
+java:S1128"3Remove this unused import 'demo.project.model.Dog'.(€¬®8åËåÆ·2J$6fe48f37-e202-42f4-b6e9-9b40f1373827
+v
+java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8åËåÆ·2J$b53aabd3-4827-49a0-84e0-162d11fd98b3
+w
+java:S1128"/Remove this unused import 'java.io.FileReader'.(Â¡¢äşÿÿÿÿ8æËåÆ·2J$c05a0828-4529-4a45-a230-fdfb4fc0d45f
+x
+java:S1128	"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8æËåÆ·2J$99b60221-f6c4-4597-ad1c-a747bc0d6977
+r
+java:S1128
+"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8æËåÆ·2J$e316d123-5c10-4d3b-8eed-a07d4c2cd8b7
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8şíğÈ·2J$49206807-7889-47c1-b992-9c02df0b3920
 u
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8¤í·É¶2J$4b421803-e07e-4d0c-be64-c8ba1390d58b
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8æËåÆ·2J$5a9adaf4-db79-480c-9843-4fb778eb77d0

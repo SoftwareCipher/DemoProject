@@ -126,4 +126,92 @@ class MyListTest {
         assertEquals("D", listString.get(0));
     }
 
+    @Test
+    void testGetFirst(){
+        MyList<String> listString = new MyList<>(3);
+        listString.add("A");
+        listString.add("B");
+
+        assertEquals("A", listString.getFirst());
+    }
+
+    @Test
+    void testGetFirstElseListIsEmpty(){
+        MyList<String> listString = new MyList<>();
+
+        assertThrows(IllegalStateException.class,
+                listString::getFirst, "List is empty");
+    }
+
+    @Test
+    void testGetLastElement() {
+        MyList<String> listString = new MyList<>();
+        listString.add("A");
+        listString.add("B");
+
+        assertEquals("B", listString.getLast());
+    }
+
+    @Test
+    void testRemoveElement(){
+        MyList<String> listString = new MyList<>();
+        listString.add("A");
+        listString.add("B");
+
+        assertEquals(2, listString.getSize());
+        assertEquals("B", listString.remove(1));
+    }
+
+    @Test
+    void testRemoveIntegerElement(){
+        MyList<Integer> listString = new MyList<>();
+        listString.add(1);
+        listString.add(2);
+        listString.add(3);
+        listString.add(4);
+        listString.add(5);
+        listString.add(6);
+
+        assertEquals(6, listString.getSize());
+        assertEquals(4, listString.remove(3));
+    }
+
+    @Test
+    void testContainsElement(){
+        MyList<String> listString = new MyList<>();
+        listString.add("A");
+        listString.add("B");
+
+        assertTrue(listString.contains("B"));
+    }
+
+    @Test
+    void isEmpty(){
+        MyList<String> listString = new MyList<>();
+        listString.add("A");
+        listString.add("B");
+
+
+        assertFalse(listString.isEmpty());
+        listString.clear();
+        assertTrue(listString.isEmpty());
+    }
+
+    @Test
+    void testClearArray(){
+        MyList<String> listString = new MyList<>();
+        listString.add("A");
+        listString.add("B");
+
+        listString.clear();
+        assertTrue(listString.isEmpty());
+    }
+
+    @Test
+    void testOf(){
+        MyList<String> list = MyList.of("A", "B", "C");
+
+        assertEquals(3, list.getSize());
+        assertEquals("B", list.get(1));
+    }
 }

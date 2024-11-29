@@ -1,9 +1,13 @@
-package demo.project;
+package com.demo.project;
 
 import com.demo.project.MyList;
 import demo.project.model.Animal;
 import demo.project.model.Dog;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -80,19 +84,24 @@ public class Main {
 //        myList.add(30);
 //        System.out.println(myList.get(2));
 
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("A");
-        arrayList.add("B");
+//        ArrayList<String> arrayList = new ArrayList<>();
+//        arrayList.add("A");
+//        arrayList.add("B");
+//
+//        arrayList.add(2, "C");
+//        System.out.println(arrayList);
+//        List<Integer> integers = new ArrayList<>();
+//        boolean t = integers.contains(1);
 
-        arrayList.add(2, "C");
-        System.out.println(arrayList);
+        System.out.println("Hello World");
+
     }
 
-    public static void method(Animal[] animals){
+    public static void method(Animal[] animals) {
 
     }
 
-    public static void method2(List<? extends Animal> animals){
+    public static void method2(List<? extends Animal> animals) {
         // animals.add(new Dog()); // only read !!!
     }
 }
