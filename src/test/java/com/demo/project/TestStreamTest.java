@@ -26,11 +26,12 @@ class TestStreamTest {
 
        assertEquals(list, testStream.findAccountsByBirthdayMonth(Month.APRIL));
     }
-
     @Test
     void partitionMaleAccounts(){
         Map<Boolean, List<Account>> expected = new HashMap<>(2);
-        expected.put(Boolean.TRUE, List.of(TestStream.accounts.get(0), TestStream.accounts.get(2), TestStream.accounts.get(3)));
+        expected.put(Boolean.TRUE, List.of(TestStream.accounts.get(0),
+                TestStream.accounts.get(2),
+                TestStream.accounts.get(3)));
         expected.put(Boolean.FALSE, List.of(TestStream.accounts.get(1)));
 
         assertEquals(expected, testStream.partitionMaleAccounts());

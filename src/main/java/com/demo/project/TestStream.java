@@ -20,30 +20,25 @@ public class TestStream {
 
     public Optional<Account> findRichestPerson() {
         return accounts.stream()
-                .max(Comparator.comparing(Account::getBalance));
+                .max(Comparator.comparing(account -> account.getBalance().intValue()));
     }
 
     public List<Account> findAccountsByBirthdayMonth(Month birthdayMonth) {
         return accounts.stream()
-                .filter(a -> a.getBirthday().getMonth().equals(birthdayMonth))
+                .filter(account -> account.getBirthday().getMonth().equals(birthdayMonth))
                 .toList();
     }
 
     public Map<Boolean, List<Account>> partitionMaleAccounts() {
-        return accounts.stream().collect(Collectors.partitioningBy(account -> account.getSex()
-                .equals(Account.Sex.MALE)));
+        return accounts.stream()
+                .collect(Collectors.partitioningBy(account -> account.getSex().equals(Account.Sex.MALE)));
     }
 
 
     public Map<String, List<Account>> groupAccountsByEmailDomain() {
-        if (accounts == null || accounts.isEmpty()) {
-            return new HashMap<>();
-        }
-
         return accounts.stream()
                 .collect(Collectors.groupingBy(account -> account.getEmail()
-                        .substring(account.getEmail()
-                                .indexOf("@") + 1)));
+                        .substring(account.getEmail().indexOf("@") + 1)));
     }
 
     public int getNumOfLettersInFirstAndLastNames(){
@@ -53,7 +48,6 @@ public class TestStream {
     }
 
     public BigDecimal calculateTotalBalance(){
-        return BigDecimal.valueOf(accounts.stream()
-                .mapToInt(value -> value.getBalance().intValue()).sum());
+        return BigDecimal.valueOf(accounts.stream().mapToInt(value -> value.getBalance().intValue()).sum());
     }
 }

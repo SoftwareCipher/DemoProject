@@ -1,10 +1,10 @@
 
 œ
 java:S1104
-"TMake accounts a static final constant or non-public and provide accessors if needed.(àÔ•ıÿÿÿÿ8Ö¸¦§¸2J$c37be8d7-fa87-451d-8f53-41b90db7ad4c
+"TMake accounts a static final constant or non-public and provide accessors if needed.(àÔ•ıÿÿÿÿ8ä€‘Î¸2J$82e3ec7f-fff5-42d2-901d-634ed72b7a19
 v
 java:S1444
-".Make this "public static accounts" field final(àÔ•ıÿÿÿÿ8×¸¦§¸2J$41e1cc4c-a8e9-42d3-9e00-3af3550b59e6
+".Make this "public static accounts" field final(àÔ•ıÿÿÿÿ8æ€‘Î¸2J$857d6ed8-cb75-45d5-816e-cabca79400d8
 e
 java:S2386
-"Make this member "protected".(àÔ•ıÿÿÿÿ8ß¸¦§¸2J$508a73ff-9649-4cbd-81fc-5be53b0e7d6f
+"Make this member "protected".(àÔ•ıÿÿÿÿ8î€‘Î¸2J$2348f2e4-1cd0-41ae-8238-9b241d18d180
