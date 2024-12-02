@@ -21,3 +21,9 @@ h
 .src/test/java/com/demo/project/MyListTest.java,0\5\0584e71b061e3064488c4c115f8b97e5c436ee19
 8
 Demo.iml,6\e\6ec8b6ac07bea35d23f9436586f436fa8406e03e
+[
++src/main/java/com/demo/project/Account.java,b\5\b5e2611ef67b9c1edde2b193e69886bc451a930c
+^
+.src/main/java/com/demo/project/TestStream.java,d\0\d090c70c3c0e7c3b784d121e45038b0b12fdd9f8
+b
+2src/test/java/com/demo/project/TestStreamTest.java,1\0\105a2300ac33d0cd16a202954638ca613c27aa29

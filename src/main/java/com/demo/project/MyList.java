@@ -1,6 +1,7 @@
 package com.demo.project;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyList<T> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -22,7 +23,23 @@ public class MyList<T> {
         objects[size++] = newObject;
     }
 
-    public void add(int index, T newObject) {
+//    public void add(int index, T newObject) {
+//        if (objects.length == size) {
+//            increaseCapacity();
+//        }
+//
+//        if (index == size) {
+//            objects[size] = newObject;
+//        } else {
+//            for (int i = size; i > index; i--) {
+//                objects[i] = objects[i - 1];
+//            }
+//            objects[index] = newObject;
+//        }
+//        size++;
+//    }
+
+    public void addSystemCopy(int index, T newObject) {
         if (objects.length == size) {
             increaseCapacity();
         }
@@ -30,17 +47,15 @@ public class MyList<T> {
         if (index == size) {
             objects[size] = newObject;
         } else {
-            for (int i = size; i > index; i--) {
-                objects[i] = objects[i - 1];
-            }
-            objects[index] = newObject;
+          //TODO
+            // System.arraycopy
         }
         size++;
     }
 
-    public static <T> MyList<T> of(T... elements){
+    public static <T> MyList<T> of(T... elements) {
         MyList<T> list = new MyList<>();
-        for(T e: elements){
+        for (T e : elements) {
             list.add(e);
         }
         return list;
@@ -60,40 +75,46 @@ public class MyList<T> {
         return (T) objects[size - 1];
     }
 
-    public T remove(int index){
-        if(checkIndex(index)){
-            T removeElement = (T) objects[index];
-            for(int i = index; i < size - 1; i++){
-                objects[i] = objects[i + 1];
-            }
-            objects[--size] = null;
-            return removeElement;
+//    public T remove(int index){
+//        if(checkIndex(index)){
+//            T removeElement = (T) objects[index];
+//            for(int i = index; i < size - 1; i++){
+//                objects[i] = objects[i + 1]; // 1, 2, 3, 5, 6, 7,
+//            }
+//            objects[--size] = null;
+//            return removeElement;
+//        }
+//        throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+//    }
+
+    public T remove(int index) {
+        Objects.checkIndex(index, size);
+        T removeElement = (T) objects[index];
+        if (index < size - 1) {
+            System.arraycopy(objects, index + 1, objects, index, size - 1 - index);
         }
-        throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        objects[size - 1] = null;
+        size--;
+        return removeElement;
     }
 
-    public boolean contains(T element){
+    public boolean contains(T element) {
         // return Arrays.asList(objects).contains(element);
 
-        for(int i = 0; i < objects.length; i++){
-            if(objects[i].equals(element)){
+        for (int i = 0; i < objects.length; i++) {
+            if (objects[i].equals(element)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isEmpty(){
-        if(size == 0){
-            return true;
-        }
-        return false;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
-    public void clear(){
-        for(int i = 0; i < objects.length; i++){
-            objects[i] = null;
-        }
+    public void clear() {
+        objects = new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 

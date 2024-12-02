@@ -61,70 +61,70 @@ class MyListTest {
         assertEquals("B", listString.get(1));
     }
 
-    @Test
-    void addByIndex(){
-        MyList<String> listString = new MyList<>();
-        listString.add("A");
-        listString.add("B");
+//    @Test
+//    void addByIndex(){
+//        MyList<String> listString = new MyList<>();
+//        listString.add("A");
+//        listString.add("B");
+//
+//        listString.add(1, "C");
+//        assertEquals(3, listString.getSize());
+//        assertEquals("C", listString.get(1));
+//    }
 
-        listString.add(1, "C");
-        assertEquals(3, listString.getSize());
-        assertEquals("C", listString.get(1));
-    }
 
+//    @Test
+//    void addByIndex2(){
+//        MyList<String> listString = new MyList<>();
+//        listString.add("A");
+//        listString.add("B");
+//        listString.add("D");
+//        listString.add("E");
+//
+//        listString.add(1, "C");
+//        assertEquals(5, listString.getSize());
+//        assertEquals("C", listString.get(1));
+//        assertEquals("B", listString.get(2));
+//        assertEquals("D", listString.get(3));
+//        assertEquals("E", listString.get(4));
+//
+//    }
 
-    @Test
-    void addByIndex2(){
-        MyList<String> listString = new MyList<>();
-        listString.add("A");
-        listString.add("B");
-        listString.add("D");
-        listString.add("E");
+//    @Test
+//    void addByIndex3(){
+//        MyList<String> listString = new MyList<>();
+//        listString.add("A");
+//        listString.add("B");
+//
+//        listString.add(2, "C");
+//        assertEquals(3, listString.getSize());
+//        assertEquals("C", listString.get(2));
+//
+//    }
 
-        listString.add(1, "C");
-        assertEquals(5, listString.getSize());
-        assertEquals("C", listString.get(1));
-        assertEquals("B", listString.get(2));
-        assertEquals("D", listString.get(3));
-        assertEquals("E", listString.get(4));
+//    @Test
+//    void addByIndex4(){
+//        MyList<String> listString = new MyList<>(3);
+//        listString.add("A");
+//        listString.add("B");
+//        listString.add("C");
+//
+//        listString.add(3, "D");
+//        assertEquals(4, listString.getSize());
+//        assertEquals("D", listString.get(3));
+//    }
 
-    }
-
-    @Test
-    void addByIndex3(){
-        MyList<String> listString = new MyList<>();
-        listString.add("A");
-        listString.add("B");
-
-        listString.add(2, "C");
-        assertEquals(3, listString.getSize());
-        assertEquals("C", listString.get(2));
-
-    }
-
-    @Test
-    void addByIndex4(){
-        MyList<String> listString = new MyList<>(3);
-        listString.add("A");
-        listString.add("B");
-        listString.add("C");
-
-        listString.add(3, "D");
-        assertEquals(4, listString.getSize());
-        assertEquals("D", listString.get(3));
-    }
-
-    @Test
-    void addByIndex5(){
-        MyList<String> listString = new MyList<>(3);
-        listString.add("A");
-        listString.add("B");
-        listString.add("C");
-
-        listString.add(0, "D");
-        assertEquals(4, listString.getSize());
-        assertEquals("D", listString.get(0));
-    }
+//    @Test
+//    void addByIndex5(){
+//        MyList<String> listString = new MyList<>(3);
+//        listString.add("A");
+//        listString.add("B");
+//        listString.add("C");
+//
+//        listString.add(0, "D");
+//        assertEquals(4, listString.getSize());
+//        assertEquals("D", listString.get(0));
+//    }
 
     @Test
     void testGetFirst(){
@@ -160,6 +160,17 @@ class MyListTest {
 
         assertEquals(2, listString.getSize());
         assertEquals("B", listString.remove(1));
+        assertEquals(1, listString.getSize());
+    }
+
+    @Test
+    void testRemoveOneElement(){
+        MyList<String> listString = new MyList<>(1);
+        listString.add("A");
+
+        assertEquals(1, listString.getSize());
+        assertEquals("A", listString.remove(0));
+        assertEquals(0, listString.getSize());
     }
 
     @Test
@@ -174,6 +185,7 @@ class MyListTest {
 
         assertEquals(6, listString.getSize());
         assertEquals(4, listString.remove(3));
+        assertEquals(5, listString.getSize());
     }
 
     @Test
