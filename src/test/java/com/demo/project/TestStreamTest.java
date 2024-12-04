@@ -203,17 +203,19 @@ class TestStreamTest {
         assertEquals(2, characterFrequencyInFirstAndLastNames.get('u').longValue());
     }
 
-//    @Test
-//    void getCharacterFrequencyIgnoreCaseInFirstAndLastNames(){
-//        Map<Character, Long> characterFrequencyInFirstAndLastNames =
-//                testStream.getCharacterFrequencyIgnoreCaseInFirstAndLastNames();
-//
-//        assertEquals(3, characterFrequencyInFirstAndLastNames.get('a').longValue());
-//        assertEquals(1, characterFrequencyInFirstAndLastNames.get('c').longValue());
-//        assertEquals(3, characterFrequencyInFirstAndLastNames.get('i').longValue());
-//        assertEquals(1, characterFrequencyInFirstAndLastNames.get('J').longValue());
-//        assertEquals(1, characterFrequencyInFirstAndLastNames.get('L').longValue());
-//        assertEquals(2, characterFrequencyInFirstAndLastNames.get('l').longValue());
-//        assertEquals(2, characterFrequencyInFirstAndLastNames.get('u').longValue());
-//    }
+    @Test
+    void getAccountsBornBetween(){
+        List<Account> list = new ArrayList<>();
+        list.add(TestStream.accounts.get(0));
+        list.add(TestStream.accounts.get(3));
+
+        assertEquals(list, testStream.getAccountsBornBetween(
+                LocalDate.of(1980, 05, 25),
+                LocalDate.of(2005,4,17)));
+    }
+
+    @Test
+    void hasAccountWithBalanceGreaterThan(){
+        assertTrue(testStream.hasAccountWithBalanceGreaterThan(BigDecimal.valueOf(38000)));
+    }
 }

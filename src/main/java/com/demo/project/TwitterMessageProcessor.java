@@ -20,11 +20,5 @@ public class TwitterMessageProcessor {
                 .sorted((e1, e2) -> Long.compare(e2.getValue(), e1.getValue()))
                 .map(Map.Entry::getKey)
                 .toList();
-
-                //1. filter start #
-                //2. remove #
-                //3. group and count
-                //4. print result by frequencies
-
     }
 }

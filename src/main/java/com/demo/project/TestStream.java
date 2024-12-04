@@ -185,7 +185,15 @@ public class TestStream {
 //        return Stream.concat()
 //    }
 
+    public List<Account> getAccountsBornBetween(LocalDate start, LocalDate end){
+        return accounts.stream()
+                .filter(account -> account.getBirthday().isAfter(start))
+                .filter(account -> account.getBirthday().isBefore(end))
+                .toList();
+    }
 
-
-
+    public boolean hasAccountWithBalanceGreaterThan(BigDecimal amount){
+        return accounts.stream()
+                .anyMatch(account -> account.getBalance().compareTo(amount) > 0);
+    }
 }
