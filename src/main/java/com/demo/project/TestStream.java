@@ -1,10 +1,14 @@
 package com.demo.project;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestStream {
     public static List<Account> accounts = Arrays.asList(
@@ -27,7 +31,7 @@ public class TestStream {
 
     public Optional<Account> findRichestPerson() {
         return accounts.stream()
-                .max(Comparator.comparing(account -> account.getBalance().intValue()));
+                .max(Comparator.comparing(Account::getBalance));
     }
 
     public List<Account> findAccountsByBirthdayMonth(Month birthdayMonth) {
@@ -44,8 +48,7 @@ public class TestStream {
 
     public Map<String, List<Account>> groupAccountsByEmailDomain() {
         return accounts.stream()
-                .collect(Collectors.groupingBy(account -> account.getEmail()
-                        .substring(account.getEmail().indexOf("@") + 1)));
+                .collect(Collectors.groupingBy(account -> account.getEmail().split("@")[1]));
     }
 
     public int getNumOfLettersInFirstAndLastNames() {
@@ -72,8 +75,7 @@ public class TestStream {
 
     public boolean containsAccountWithEmailDomain(String emailDomain) {
         return accounts.stream()
-                .anyMatch(account -> account.getEmail()
-                .endsWith(emailDomain));
+                .anyMatch(account -> account.getEmail().endsWith(emailDomain));
     }
 
     public BigDecimal getBalanceByEmail(String email) {
@@ -82,37 +84,37 @@ public class TestStream {
                         .endsWith(email))
                 .map(Account::getBalance)
                 .findFirst()
-                .orElse(BigDecimal.ZERO);
+                .orElseThrow(() -> new AccountNotFoundException(String.format("Account with %s not found", email)));
     }
 
-    public List<Account> getEmailsOfAccountsCreatedAfter(LocalDate localDate){
+    public List<Account> getEmailsOfAccountsCreatedAfter(LocalDate localDate) {
         return accounts.stream()
                 .filter(account -> account.getCreationDate().isAfter(localDate))
                 .toList();
     }
 
-    public Optional<Account> getOldestAccountHolder(){
+    public Optional<Account> getOldestAccountHolder() {
         return accounts.stream()
                 .min(Comparator.comparing(Account::getCreationDate));
     }
 
-    public Optional<Account> getYoungestAccountHolder(){
+    public Optional<Account> getYoungestAccountHolder() {
         return accounts.stream()
                 .max(Comparator.comparing(Account::getCreationDate));
     }
 
-    public List<Account> getAccountsWithBalanceGreaterThan(BigDecimal bigDecimal){
+    public List<Account> getAccountsWithBalanceGreaterThan(BigDecimal bigDecimal) {
         return accounts.stream()
                 .filter(account -> account.getBalance().compareTo(bigDecimal) > 0)
                 .toList();
     }
 
-    public Map<String, BigDecimal> getTotalBalanceByDomain(){
+    public Map<String, BigDecimal> getTotalBalanceByDomain() {
 //        return accounts.stream()
-//                .collect(Collectors.groupingBy(Account::getEmail,
+//                .collect(Collectors.groupingBy(
+//                        Account::getEmail,
 //                        accounts.stream().map(Account::getBalance)
 //                                .reduce(BigDecimal.ZERO, BigDecimal::add)));
-
 
 
         return accounts.stream()
@@ -122,7 +124,7 @@ public class TestStream {
                                 Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))));
     }
 
-    public Map<Account.Sex, List<String>> getEmailsByGenderWithBalanceGreaterThan(BigDecimal minBalance){
+    public Map<Account.Sex, List<String>> getEmailsByGenderWithBalanceGreaterThan(BigDecimal minBalance) {
         return accounts.stream()
                 .filter(account -> account.getBalance().compareTo(minBalance) > 0)
                 .collect(Collectors.groupingBy(
@@ -130,4 +132,60 @@ public class TestStream {
                         Collectors.mapping(Account::getEmail, Collectors.toList())
                 ));
     }
+
+    public List<Account> getAccountsSortedByBalance() {
+        return accounts.stream()
+                .sorted(Comparator.comparing(Account::getBalance).reversed())
+                .toList();
+    }
+
+    public BigDecimal getAverageBalance() {
+        return accounts.stream()
+                .map(Account::getBalance)
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .divide(BigDecimal.valueOf(accounts.size()), RoundingMode.HALF_UP);
+    }
+
+    public Optional<Account> getAccountWithLongestName() {
+        return accounts.stream()
+                .max(Comparator.comparing(name -> name.getFirstName().length()));
+    }
+
+    public Map<Account.Sex, Long> countAccountsByGender() {
+        return accounts.stream()
+                .collect(Collectors.groupingBy(
+                        Account::getSex,
+                        Collectors.counting()));
+    }
+
+    public Map<Long, Account> collectAccountsById() {
+        return accounts.stream()
+                .collect(Collectors.toMap(Account::getId, Function.identity()));
+    }
+
+    public Map<Month, BigDecimal> groupTotalBalanceByMonth() {
+        return accounts.stream()
+                .collect(Collectors.groupingBy(account -> account.getCreationDate().getMonth(),
+                        Collectors.mapping(Account::getBalance,
+                                Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))));
+    }
+
+    public Map<Character, Long> getCharacterFrequencyInFirstNames() {
+        return accounts.stream()
+                .map(Account::getFirstName)
+                .flatMapToInt(String::chars)
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.counting()
+                ));
+    }
+
+//    public Map<Character, Long> getCharacterFrequencyIgnoreCaseInFirstAndLastNames(int nameLengthBound) {
+//        return Stream.concat()
+//    }
+
+
+
+
 }
