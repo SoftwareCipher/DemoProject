@@ -6,9 +6,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TestStream {
     public static List<Account> accounts = Arrays.asList(
@@ -185,15 +183,69 @@ public class TestStream {
 //        return Stream.concat()
 //    }
 
-    public List<Account> getAccountsBornBetween(LocalDate start, LocalDate end){
+    public List<Account> getAccountsBornBetween(LocalDate start, LocalDate end) {
         return accounts.stream()
                 .filter(account -> account.getBirthday().isAfter(start))
                 .filter(account -> account.getBirthday().isBefore(end))
                 .toList();
     }
 
-    public boolean hasAccountWithBalanceGreaterThan(BigDecimal amount){
+    public boolean hasAccountWithBalanceGreaterThan(BigDecimal amount) {
         return accounts.stream()
                 .anyMatch(account -> account.getBalance().compareTo(amount) > 0);
+    }
+
+    //Сгруппировать email-адреса по полу и вернуть их в виде списка
+    public Map<Account.Sex, List<Account>> groupEmailsByGender() {
+        return accounts.stream()
+                .collect(Collectors.groupingBy(
+                        Account::getSex
+                ));
+    }
+
+    //Получить сумму балансов всех мужчин
+    public BigDecimal getTotalBalanceOfMaleAccounts() {
+        return accounts.stream()
+                .filter(account -> account.getSex().equals(Account.Sex.MALE))
+                .map(Account::getBalance)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    //Сортировать аккаунты по дате рождения в порядке убывания
+    public List<Account> sortAccountsByDateOfBirthDescending() {
+        return accounts.stream()
+                .sorted(Comparator.comparing(Account::getBirthday).reversed())
+                .toList();
+    }
+
+    //Посчитать количество уникальных доменов email
+    public long countUniqueEmailDomains() {
+        return accounts.stream()
+                .map(account -> account.getEmail()
+                        .substring(account.getEmail().indexOf("@") + 1))
+                .distinct()
+                .count();
+    }
+
+    //Создать строку с именами всех пользователей, разделёнными запятой
+    public String getAllAccountNamesCommaSeparated() {
+        return accounts.stream()
+                .map(Account::getFirstName)
+                .collect(Collectors.joining(", "));
+    }
+
+    //Сгруппировать аккаунты по длине имени (имя + фамилия)
+    public Map<Integer, List<Account>> groupAccountsByNameLength() {
+        return accounts.stream()
+                .collect(Collectors.groupingBy(
+                        account -> account.getFirstName().length() + account.getLastName().length()
+                ));
+    }
+
+    //Получить дату создания самого нового аккаунта
+    public Optional<LocalDate> getNewestAccountCreationDate() {
+        return accounts.stream()
+                .map(Account::getCreationDate)
+                .max(Comparator.comparing(Function.identity()));
     }
 }
