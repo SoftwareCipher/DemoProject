@@ -2,10 +2,9 @@ package com.demo.project.Stream;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class TestStreamProduct {
     public static List<Product> products = Arrays.asList(
@@ -24,5 +23,25 @@ public class TestStreamProduct {
     public Optional<Product> findMostExpensiveProduct(){
         return products.stream()
                 .max(Comparator.comparing(Product::getPrice));
+    }
+
+    public List<Product> getProductsByCategory(String category){
+        return products.stream()
+                .filter(c -> c.getCategory().equals(category))
+                .toList();
+    }
+
+    public Map<String, List<Product>> groupProductsByCategory(){
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory
+                ));
+    }
+
+    public Double calculateAverageRating(){
+        return products.stream()
+                .collect(Collectors.collectingAndThen(
+                Collectors.averagingDouble(Product::getRating),
+                        avg -> Math.round(avg * 100) / 100.0));
     }
 }
