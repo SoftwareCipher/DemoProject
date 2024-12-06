@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.Stream;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class TestStream {
+public class TestStreamAccount {
     public static List<Account> accounts = Arrays.asList(
             new Account(1L, "Justin", "Butler", "justin.butler@gmail.com",
                     LocalDate.parse("2003-04-17"), Account.Sex.MALE, LocalDate.parse("2016-06-13"),

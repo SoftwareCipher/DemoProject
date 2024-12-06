@@ -1,5 +1,6 @@
 package com.demo.project;
 
+import com.demo.project.Stream.TwitterMessageProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

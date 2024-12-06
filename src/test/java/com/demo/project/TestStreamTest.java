@@ -1,5 +1,7 @@
 package com.demo.project;
 
+import com.demo.project.Stream.Account;
+import com.demo.project.Stream.TestStreamAccount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -7,12 +9,12 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 
-import static com.demo.project.TestStream.accounts;
+import static com.demo.project.Stream.TestStreamAccount.accounts;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestStreamTest {
 
-    private TestStream testStream = new TestStream();
+    private TestStreamAccount testStream = new TestStreamAccount();
 
     @Test
     void testFindRichestPerson() {
@@ -187,7 +189,7 @@ class TestStreamTest {
 
     @Test
     void testGroupTotalBalanceByMonth() {
-        List<Account> accounts = TestStream.accounts;
+        List<Account> accounts = TestStreamAccount.accounts;
         Map<Month, BigDecimal> expected = new HashMap<>(2);
         expected.put(Month.JUNE, accounts.get(0).getBalance().add(accounts.get(1).getBalance()));
         expected.put(Month.MARCH, accounts.get(2).getBalance().add(accounts.get(3).getBalance()));
