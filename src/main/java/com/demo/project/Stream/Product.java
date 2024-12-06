@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(of = "product")
+@EqualsAndHashCode
 public class Product {
     private Long id;
     private String name;

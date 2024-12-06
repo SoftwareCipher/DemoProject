@@ -3,7 +3,6 @@ package com.demo.project.Stream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TestStreamProduct {
@@ -20,28 +19,69 @@ public class TestStreamProduct {
                     4.6, LocalDate.parse("2020-11-12"))
     );
 
-    public Optional<Product> findMostExpensiveProduct(){
+    public Optional<Product> findMostExpensiveProduct() {
         return products.stream()
                 .max(Comparator.comparing(Product::getPrice));
     }
 
-    public List<Product> getProductsByCategory(String category){
+    public List<Product> getProductsByCategory(String category) {
         return products.stream()
                 .filter(c -> c.getCategory().equals(category))
                 .toList();
     }
 
-    public Map<String, List<Product>> groupProductsByCategory(){
+    public Map<String, List<Product>> groupProductsByCategory() {
         return products.stream()
                 .collect(Collectors.groupingBy(
                         Product::getCategory
                 ));
     }
 
-    public Double calculateAverageRating(){
+    public Double calculateAverageRating() {
         return products.stream()
                 .collect(Collectors.collectingAndThen(
-                Collectors.averagingDouble(Product::getRating),
+                        Collectors.averagingDouble(Product::getRating),
                         avg -> Math.round(avg * 100) / 100.0));
+    }
+
+    //Найти топ N продуктов с самым высоким рейтингом
+    public List<Product> findTopRatedProducts(int n) {
+        return products.stream()
+                .sorted(Comparator.comparing(Product::getRating).reversed())
+                .limit(n)
+                .toList();
+    }
+
+    public Map<Boolean, List<Product>> partitionProductsByPrice(BigDecimal priceThreshold) {
+        return products.stream()
+                .collect(Collectors.partitioningBy(
+                        product -> product.getPrice().compareTo(priceThreshold) > 0
+                ));
+    }
+
+    public List<String> getProductNamesReleasedAfter(LocalDate date) {
+        return products.stream()
+                .filter(product -> product.getReleaseDate().isAfter(date))
+                .map(Objects::toString)
+                .toList();
+    }
+
+    public boolean areAllProductsInCategoryRatedAbove(String category, Double ratingThreshold) {
+        return products.stream()
+                .filter(product -> product.getCategory().equals(category))
+                .anyMatch(rating -> rating.getRating().compareTo(ratingThreshold) > 0);
+    }
+
+    public Map<String, Long> countProductsInEachCategory() {
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.counting()
+                ));
+    }
+
+    public Optional<Product> findOldestProduct(){
+        return products.stream()
+                .min(Comparator.comparing(Product::getReleaseDate));
     }
 }
