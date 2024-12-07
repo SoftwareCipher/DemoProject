@@ -1,41 +1,13 @@
 
 Ä
-java:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(žúƒ¶8ÓØÍ£¸2J$aec924c0-ab88-4138-8020-6ffa1e7cc118
-~	java:S125"<This block of commented-out lines of code should be removed.(©·Ïê8×ØÍ£¸2J$6121120b-e24d-4095-8e35-4ebcf98e8ce4
-~	java:S1253"<This block of commented-out lines of code should be removed.(¶Ô—Õ8×ØÍ£¸2J$1b3f3340-1519-4635-8a7e-7de5ff2cf590
-ƒ	java:S125<"<This block of commented-out lines of code should be removed.(þåä®ûÿÿÿÿ8×ØÍ£¸2J$9486c896-29a7-4407-82ef-18362df194ab
-ƒ	java:S125B"<This block of commented-out lines of code should be removed.(Øà¼©üÿÿÿÿ8×ØÍ£¸2J$316d02fe-4c39-4158-aaa6-b36277b5e892
-~	java:S125T"<This block of commented-out lines of code should be removed.(êàá„8×ØÍ£¸2J$5de1fedc-6018-48da-80e9-74f0975b4f4a
-ƒ	java:S125Y"<This block of commented-out lines of code should be removed.(õöö¤ûÿÿÿÿ8×ØÍ£¸2J$c7ac6a3e-5ce2-4f9a-806f-919d501a1f7e
-ƒ	java:S125_"<This block of commented-out lines of code should be removed.(´ƒò·üÿÿÿÿ8×ØÍ£¸2J$380caa6b-2d59-4e73-bb40-a402bc7440fc
-r	java:S106k"+Replace this use of System.out by a logger.(ã¿¢Ôùÿÿÿÿ8“ô›Â¹2J$be95d435-6c5b-456b-bfb1-0bec3c2dd8bc
-m	java:S106m"+Replace this use of System.out by a logger.(–Ð·ä8Þ§œÂ¹2J$0b610345-eb78-44d4-8d07-7ff6e6c32af0
-•
-java:S6204p"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ã¤£’8öö£Â¹2J$5b463a32-a008-4191-9321-8326056888c8
-œ
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ÃäíÆûÿÿÿÿ8÷ö£Â¹2J$c78e9873-dadc-4639-9c02-649067962ec4
-v
-java:S1128"3Remove this unused import 'demo.project.model.Dog'.(€¬®8÷ö£Â¹2J$9a823f4d-5d17-4432-8821-25eca2a4e3c2
-v
-java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8÷ö£Â¹2J$9b8d61a2-0aff-4a37-befc-fe25b7f17cfd
-w
-java:S1128"/Remove this unused import 'java.io.FileReader'.(Â¡¢äþÿÿÿÿ8÷ö£Â¹2J$656a4af0-094b-4469-9848-03ce86e00501
-x
-java:S1128	"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8øö£Â¹2J$fc4c5700-f461-4c86-80de-485adb11bca6
-r
-java:S1128
-"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8øö£Â¹2J$4f811274-2993-467b-ae02-315eedd93515
-x
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8øö£Â¹2J$f2d605ca-128d-4856-bc9d-c2cf53efeaa9
-|
-java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8øö£Â¹2J$d888aec8-7508-4b8d-bdb6-94ec4c6e133b
-x
-java:S1128"0Remove this unused import 'java.time.LocalTime'.(à®øÃùÿÿÿÿ8øö£Â¹2J$9bc00801-2308-4b2c-a3f9-50083560cc9f
-‚
-java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8øö£Â¹2J$7684975e-59b2-4ae1-a035-d4a83fcad19f
-}
-java:S1128":Remove this unused import 'java.time.temporal.ChronoUnit'.(Á…§8øö£Â¹2J$d003ca13-1899-4864-a6a2-f5a7ef5627ca
-s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8øö£Â¹2J$676d81ca-e60a-4946-a601-f3fd19477b69
-Q
-java:S1128"4Remove this unused import 'java.util.stream.Stream'.(ó÷Ž”8²ù¤Â¹2
+java:S1186u"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(žúƒ¶8ÓØÍ£¸2J$92f9c8fb-459f-423a-8fc9-333710e49d9f
+~	java:S125"<This block of commented-out lines of code should be removed.(©·Ïê8×ØÍ£¸2J$aff38e96-362b-4f37-97bb-58817d57c920
+~	java:S125'"<This block of commented-out lines of code should be removed.(¶Ô—Õ8×ØÍ£¸2J$cd37c60a-57d1-44c6-b70a-7fde791a126c
+ƒ	java:S1250"<This block of commented-out lines of code should be removed.(þåä®ûÿÿÿÿ8×ØÍ£¸2J$9dbbe1df-9194-4385-8334-dbfa877de40c
+ƒ	java:S1256"<This block of commented-out lines of code should be removed.(Øà¼©üÿÿÿÿ8×ØÍ£¸2J$0a072840-0c9a-4f07-a60f-8b3efd733d8b
+~	java:S125H"<This block of commented-out lines of code should be removed.(êàá„8×ØÍ£¸2J$4e3ac648-73a4-4143-9b0b-ed5c1bb95c48
+ƒ	java:S125M"<This block of commented-out lines of code should be removed.(õöö¤ûÿÿÿÿ8×ØÍ£¸2J$12afee8a-4f34-43ac-a781-ee69e827895c
+ƒ	java:S125S"<This block of commented-out lines of code should be removed.(´ƒò·üÿÿÿÿ8×ØÍ£¸2J$5c4c026a-be65-4c1f-910b-3e42682929d9
+~	java:S125^"<This block of commented-out lines of code should be removed.(ëð¾8ÛäÐŒº2J$88a87ae2-ec65-4954-bac9-057139fc1024
+r	java:S106k"+Replace this use of System.out by a logger.(ååýÿÿÿÿ8ý­ÐŒº2J$3bc03a27-703f-4f79-a169-95522b455b93
+r	java:S106r"+Replace this use of System.out by a logger.(…‡“®ùÿÿÿÿ8¥×ÜŒº2J$e4a9bb12-a306-460e-9b82-4e5dde6742d8

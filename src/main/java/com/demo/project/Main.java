@@ -1,24 +1,12 @@
 package com.demo.project;
 
-import com.demo.project.MyList;
+import com.demo.project.Stream.Human;
 import demo.project.model.Animal;
-import demo.project.model.Dog;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static java.util.Arrays.asList;
 
 public class Main {
     public static void main(String[] args) {
@@ -101,16 +89,29 @@ public class Main {
 //        List<Integer> integers = new ArrayList<>();
 //        boolean t = integers.contains(1);
 
-        List<List<String>> list = Arrays.asList(
-                Arrays.asList("a"),
-                Arrays.asList("b"));
-        System.out.println(list);
+//        List<List<String>> list = Arrays.asList(
+//                Arrays.asList("a"),
+//                Arrays.asList("b"));
+//        System.out.println(list);
+//
+//        System.out.println(list
+//                .stream()
+//                .flatMap(Collection::stream)
+//                .collect(Collectors.toList()));
 
-        System.out.println(list
-                .stream()
+        List<Human> humans = asList(
+                new Human("Sam", asList("Buddy", "Lucy")),
+                new Human("Bob", asList("Frankie", "Rosie")),
+                new Human("Marta", asList("Simba", "Tilly")));
+
+        System.out.println(humans);
+
+        List<String> petNames = humans.stream()
+                .map(Human::pets)
                 .flatMap(Collection::stream)
-                .collect(Collectors.toList()));
+                .toList();
 
+        System.out.println(petNames);
     }
 
     public static void method(Animal[] animals) {

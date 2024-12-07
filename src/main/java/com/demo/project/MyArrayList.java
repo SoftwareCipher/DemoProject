@@ -3,18 +3,19 @@ package com.demo.project;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyList<T> {
+public class MyArrayList<T> implements CustomList<T>{
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] objects;
     private int size = 0;
 
-    public MyList() {
+    public MyArrayList() {
         this.objects = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyList(int capacity) {
+    public MyArrayList(int capacity) {
         this.objects = new Object[capacity];
     }
+
 
     public void add(T newObject) {
         if (objects.length == size) {
@@ -53,8 +54,8 @@ public class MyList<T> {
         size++;
     }
 
-    public static <T> MyList<T> of(T... elements) {
-        MyList<T> list = new MyList<>();
+    public static <T> MyArrayList<T> of(T... elements) {
+        MyArrayList<T> list = new MyArrayList<>();
         for (T e : elements) {
             list.add(e);
         }

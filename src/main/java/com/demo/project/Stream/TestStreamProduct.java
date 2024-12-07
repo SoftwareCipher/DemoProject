@@ -62,7 +62,7 @@ public class TestStreamProduct {
     public List<String> getProductNamesReleasedAfter(LocalDate date) {
         return products.stream()
                 .filter(product -> product.getReleaseDate().isAfter(date))
-                .map(Objects::toString)
+                .map(Product::getName)
                 .toList();
     }
 
@@ -83,5 +83,47 @@ public class TestStreamProduct {
     public Optional<Product> findOldestProduct(){
         return products.stream()
                 .min(Comparator.comparing(Product::getReleaseDate));
+    }
+
+    public Map<String, BigDecimal> getTotalPriceByCategory(){
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.reducing(
+                                BigDecimal.ZERO,
+                                Product::getPrice,
+                                BigDecimal::add
+                        )
+                ));
+    }
+
+    public Optional<Product> findCheapestProduct(){
+        return products.stream()
+                .min(Comparator.comparing(Product::getPrice));
+    }
+
+    public long countProductsReleasedBefore(LocalDate date){
+        return products.stream()
+                .filter(product -> product.getReleaseDate().isBefore(date))
+                .count();
+    }
+
+    public List<Product> getProductsInPriceRange(BigDecimal minPrice, BigDecimal maxPrice){
+        return products.stream()
+                .filter(product -> product.getPrice().compareTo(minPrice) > 0)
+                .filter(product -> product.getPrice().compareTo(maxPrice) < 0)
+                .toList();
+    }
+
+    public Map<Boolean, List<Product>> partitionProductsByRating(Double ratingThreshold){
+        return products.stream()
+                .collect(
+                        Collectors.partitioningBy(product -> product.getRating() > ratingThreshold));
+    }
+
+    public Set<String> getAllCategories(){
+        return products.stream()
+                .map(Product::getCategory)
+                .collect(Collectors.toSet());
     }
 }

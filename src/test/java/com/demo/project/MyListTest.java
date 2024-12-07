@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyListTest {
-    MyList myList;
+    MyArrayList myList;
 
     @BeforeEach
     void BeforeEach(){
-        myList = new MyList();
+        myList = new MyArrayList();
     }
 
     @Test
@@ -48,7 +48,7 @@ class MyListTest {
 
     @Test
     void testAddAndGetWithDifferentTypes() {
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
 
         myList.add(10);
         myList.add(20);
@@ -128,7 +128,7 @@ class MyListTest {
 
     @Test
     void testGetFirst(){
-        MyList<String> listString = new MyList<>(3);
+        MyArrayList<String> listString = new MyArrayList<>(3);
         listString.add("A");
         listString.add("B");
 
@@ -137,7 +137,7 @@ class MyListTest {
 
     @Test
     void testGetFirstElseListIsEmpty(){
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
 
         assertThrows(IllegalStateException.class,
                 listString::getFirst, "List is empty");
@@ -145,7 +145,7 @@ class MyListTest {
 
     @Test
     void testGetLastElement() {
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
         listString.add("A");
         listString.add("B");
 
@@ -154,7 +154,7 @@ class MyListTest {
 
     @Test
     void testRemoveElement(){
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
         listString.add("A");
         listString.add("B");
 
@@ -165,7 +165,7 @@ class MyListTest {
 
     @Test
     void testRemoveOneElement(){
-        MyList<String> listString = new MyList<>(1);
+        MyArrayList<String> listString = new MyArrayList<>(1);
         listString.add("A");
 
         assertEquals(1, listString.getSize());
@@ -175,7 +175,7 @@ class MyListTest {
 
     @Test
     void testRemoveIntegerElement(){
-        MyList<Integer> listString = new MyList<>();
+        MyArrayList<Integer> listString = new MyArrayList<>();
         listString.add(1);
         listString.add(2);
         listString.add(3);
@@ -190,7 +190,7 @@ class MyListTest {
 
     @Test
     void testContainsElement(){
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
         listString.add("A");
         listString.add("B");
 
@@ -199,7 +199,7 @@ class MyListTest {
 
     @Test
     void isEmpty(){
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
         listString.add("A");
         listString.add("B");
 
@@ -211,7 +211,7 @@ class MyListTest {
 
     @Test
     void testClearArray(){
-        MyList<String> listString = new MyList<>();
+        MyArrayList<String> listString = new MyArrayList<>();
         listString.add("A");
         listString.add("B");
 
@@ -221,7 +221,7 @@ class MyListTest {
 
     @Test
     void testOf(){
-        MyList<String> list = MyList.of("A", "B", "C");
+        MyArrayList<String> list = MyArrayList.of("A", "B", "C");
 
         assertEquals(3, list.getSize());
         assertEquals("B", list.get(1));

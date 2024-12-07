@@ -97,4 +97,74 @@ class TestStreamProductTest {
 
         assertEquals(oldProduct, testStreamProduct.findOldestProduct());
     }
+
+    @Test
+    void testGetTotalPriceByCategory(){
+        Map<String, BigDecimal> map = new HashMap<>(3);
+        map.put("Electronics", products.get(0).getPrice()
+                .add(products.get(1).getPrice()
+                .add(products.get(4).getPrice())));
+        map.put("Accessories", products.get(2).getPrice());
+        map.put("Home Appliances", products.get(3).getPrice());
+
+        assertEquals(map, testStreamProduct.getTotalPriceByCategory());
+    }
+
+    @Test
+    void testFindCheapestProduct(){
+        Optional<Product> product = Optional.of(products.get(3));
+
+        assertEquals(product, testStreamProduct.findCheapestProduct());
+    }
+
+    @Test
+    void testCountProductsReleasedBefore(){
+        assertEquals(2, testStreamProduct.countProductsReleasedBefore(
+                LocalDate.of(2020, 7, 1)));
+    }
+
+    @Test
+    void testGetProductsInPriceRange(){
+        List<Product> products1 = new ArrayList<>(3);
+        products1.add(products.get(2));
+        products1.add(products.get(3));
+        products1.add(products.get(4));
+
+        assertEquals(products1, testStreamProduct.getProductsInPriceRange(
+                BigDecimal.valueOf(0),
+                BigDecimal.valueOf(700))
+        );
+    }
+
+    @Test
+    void testPartitionProductsByRating(){
+        Map<Boolean, List<Product>> map = new HashMap<>(3);
+        map.put(Boolean.TRUE, List.of(products.get(0), products.get(1)));
+        map.put(Boolean.FALSE, List.of(products.get(2), products.get(3), products.get(4)));
+
+        assertEquals(map, testStreamProduct.partitionProductsByRating(4.6));
+    }
+
+    @Test
+    void testGetAllCategories(){
+        Set<String> strings = new HashSet<>(3);
+        strings.add(products.get(0).getCategory());
+        strings.add(products.get(2).getCategory());
+        strings.add(products.get(3).getCategory());
+
+        assertEquals(strings, testStreamProduct.getAllCategories());
+    }
+
+    @Test
+    void testGetRatingStatistics(){
+        DoubleSummaryStatistics stats = testStreamProduct.getRatingStatistics();
+
+        assertEquals(5, stats.getCount());
+        assertEquals(4.8, stats.getMax());
+        assertEquals(4.2, stats.getMin());
+        assertEquals(4.56, stats.getAverage(), 0.01);
+        assertEquals(22.8, stats.getSum(), 0.01);
+
+        assertEquals(stats, testStreamProduct.getRatingStatistics());
+    }
 }
