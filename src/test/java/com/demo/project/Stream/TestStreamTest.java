@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.Stream;
 
 import com.demo.project.Stream.Account;
 import com.demo.project.Stream.TestStreamAccount;

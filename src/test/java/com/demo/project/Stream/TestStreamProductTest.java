@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.demo.project.Stream.TestStreamProduct.products;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -156,15 +157,51 @@ class TestStreamProductTest {
     }
 
     @Test
-    void testGetRatingStatistics(){
-        DoubleSummaryStatistics stats = testStreamProduct.getRatingStatistics();
+    void testExistsProductWithName(){
+        assertTrue(testStreamProduct.existsProductWithName("Gaming Console"));
+    }
 
-        assertEquals(5, stats.getCount());
-        assertEquals(4.8, stats.getMax());
-        assertEquals(4.2, stats.getMin());
-        assertEquals(4.56, stats.getAverage(), 0.01);
-        assertEquals(22.8, stats.getSum(), 0.01);
+    @Test
+    void testGetAllProductsSortedByName(){
+        List<Product> list = new ArrayList<>(5);
+        list.add(products.get(0));
+        list.add(products.get(1));
+        list.add(products.get(2));
+        list.add(products.get(3));
+        list.add(products.get(4));
+        list.sort(new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
-        assertEquals(stats, testStreamProduct.getRatingStatistics());
+        assertEquals(list, testStreamProduct.getAllProductsSortedByName());
+    }
+
+    @Test
+    void testGroupProductsByReleaseYear(){
+        Map<Integer, List<Product>> map = new HashMap<>(3);
+        map.put(2021, List.of(products.get(0), products.get(2)));
+        map.put(2020, List.of(products.get(1), products.get(4)));
+        map.put(2019, List.of(products.get(3)));
+
+        assertEquals(map, testStreamProduct.groupProductsByReleaseYear());
+    }
+
+    @Test
+    void testGetAveragePriceInCategory(){
+        double avgPrice = 833.32;
+        double actual = Math.round(testStreamProduct.getAveragePriceInCategory("Electronics") * 100.0) / 100.0;
+        assertEquals(avgPrice, actual);
+    }
+
+    @Test
+    void testFindProductsAboveRating(){
+        List<Product> products1 = new ArrayList<>(2);
+        products1.add(products.get(0));
+        products1.add(products.get(1));
+
+        assertEquals(products1, testStreamProduct.findProductsAboveRating(4.6));
     }
 }

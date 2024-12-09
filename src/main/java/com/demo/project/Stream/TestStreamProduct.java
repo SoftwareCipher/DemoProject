@@ -80,12 +80,12 @@ public class TestStreamProduct {
                 ));
     }
 
-    public Optional<Product> findOldestProduct(){
+    public Optional<Product> findOldestProduct() {
         return products.stream()
                 .min(Comparator.comparing(Product::getReleaseDate));
     }
 
-    public Map<String, BigDecimal> getTotalPriceByCategory(){
+    public Map<String, BigDecimal> getTotalPriceByCategory() {
         return products.stream()
                 .collect(Collectors.groupingBy(
                         Product::getCategory,
@@ -97,33 +97,67 @@ public class TestStreamProduct {
                 ));
     }
 
-    public Optional<Product> findCheapestProduct(){
+    public Optional<Product> findCheapestProduct() {
         return products.stream()
                 .min(Comparator.comparing(Product::getPrice));
     }
 
-    public long countProductsReleasedBefore(LocalDate date){
+    public long countProductsReleasedBefore(LocalDate date) {
         return products.stream()
                 .filter(product -> product.getReleaseDate().isBefore(date))
                 .count();
     }
 
-    public List<Product> getProductsInPriceRange(BigDecimal minPrice, BigDecimal maxPrice){
+    public List<Product> getProductsInPriceRange(BigDecimal minPrice, BigDecimal maxPrice) {
         return products.stream()
                 .filter(product -> product.getPrice().compareTo(minPrice) > 0)
                 .filter(product -> product.getPrice().compareTo(maxPrice) < 0)
                 .toList();
     }
 
-    public Map<Boolean, List<Product>> partitionProductsByRating(Double ratingThreshold){
+    public Map<Boolean, List<Product>> partitionProductsByRating(Double ratingThreshold) {
         return products.stream()
                 .collect(
                         Collectors.partitioningBy(product -> product.getRating() > ratingThreshold));
     }
 
-    public Set<String> getAllCategories(){
+    public Set<String> getAllCategories() {
         return products.stream()
                 .map(Product::getCategory)
                 .collect(Collectors.toSet());
     }
+
+    public boolean existsProductWithName(String name) {
+        return products.stream()
+                .anyMatch(product -> product.getName().contains(name));
+    }
+
+    public List<Product> getAllProductsSortedByName() {
+        return products.stream()
+                .sorted(Comparator.comparing(Product::getName))
+                .toList();
+    }
+
+    public Map<Integer, List<Product>> groupProductsByReleaseYear() {
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        product -> product.getReleaseDate().getYear()
+                ));
+    }
+
+    public double getAveragePriceInCategory(String category){
+        return products.stream()
+                .filter(product -> product.getCategory().equals(category))
+                .map(Product::getPrice)
+                .mapToDouble(BigDecimal::doubleValue)
+                .average()
+                .orElse(0.0);
+    }
+
+    public List<Product> findProductsAboveRating(double ratingThreshold){
+        return products.stream()
+                .filter(product -> product.getRating() > ratingThreshold)
+                .toList();
+    }
+
 }

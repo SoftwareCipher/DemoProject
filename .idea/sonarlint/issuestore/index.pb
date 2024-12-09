@@ -20,10 +20,6 @@ h
 8
 Demo.iml,6\e\6ec8b6ac07bea35d23f9436586f436fa8406e03e
 b
-2src/test/java/com/demo/project/TestStreamTest.java,1\0\105a2300ac33d0cd16a202954638ca613c27aa29
-o
-?src/test/java/com/demo/project/TwitterMessageProcessorTest.java,0\2\028c27a222faa34fb56f4ab9e4e8e6f7b9324adc
-b
 2src/main/java/com/demo/project/Stream/Account.java,7\6\76479da670813e93b125b3f3350e4429661abf0e
 b
 2src/main/java/com/demo/project/Stream/Product.java,7\5\757015f25b15318f94f85c453397876ed4853aca
@@ -45,5 +41,3 @@ _
 /src/main/java/com/demo/project/MyArrayList.java,a\b\ab5ff9bd1b3e6c42bf4593c8515aa1637d93e4f3
 `
 0src/main/java/com/demo/project/MyLinkedList.java,8\c\8c910cf1d2e0378158862510c3ee9a7788c4c901
-r
-Bsrc/main/java/com/demo/project/Stream/DoubleSummaryStatistics.java,c\7\c75fc89bb5afdf777c711cfe80175fef43412d8a
