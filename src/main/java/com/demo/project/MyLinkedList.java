@@ -5,10 +5,12 @@ public class MyLinkedList<T> implements CustomList<T> {
     public static class Node<T>{
         T data;
         Node<T> next;
+        Node<T> prev;
 
         public Node(T data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
@@ -31,20 +33,27 @@ public class MyLinkedList<T> implements CustomList<T> {
     @Override
     public void add(int index, T newObject) {
         Node<T> newNode = new Node<>(newObject);
-        if(index == 0){
+
+        if (size == 0) {
+            head = newNode;
+            tail = newNode;
+        }else if(index == 0){
             newNode.next = head;
             head = newNode;
         }else if(index == size - 1){
             tail.next = newNode;
+            newNode.prev = tail;
             tail = newNode;
         }else{
-            Node<T> prev = head;
+            Node<T> prevNode = head;
             for(int i = 0; i < index - 1; i++){
-                prev = prev.next;
+                prevNode = prevNode.next;
             }
-            newNode.next = prev.next;
-            prev.next = newNode;
+            newNode.next = prevNode.next;
+            newNode.prev = prevNode;
+            prevNode.next = newNode;
         }
+        size++;
     }
 
     @Override
@@ -78,15 +87,20 @@ public class MyLinkedList<T> implements CustomList<T> {
         if(index == 0){
             removeElement = head.data;
             head = head.next;
+        }else if(index == size - 1){
+            removeElement = tail.data;
+            tail = tail.prev;
         }else{
-            Node<T> prev = head;
+            Node<T> prevNode = head;
             for(int i = 0; i < index - 1; i++){
-                prev = prev.next;
+                prevNode = prevNode.next;
             }
 
-            Node<T> nodeToRemove = prev.next;
+            Node<T> nodeToRemove = prevNode.next;
             removeElement = nodeToRemove.data;
-            prev.next = nodeToRemove.next;
+
+            prevNode.next = nodeToRemove.next;
+            nodeToRemove.next = nodeToRemove.prev;
         }
 
         size--;

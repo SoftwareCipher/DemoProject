@@ -40,9 +40,9 @@ class MyLinkedListTest {
         stringMyLinkedList.add("Hello_3");
         stringMyLinkedList.add("Hello_4");
 
-        stringMyLinkedList.add(1, "Hello_2_2");
-
-        assertEquals("Hello_2_2", stringMyLinkedList.get(1));
+        stringMyLinkedList.add(2, "Hello_2_2");
+        assertEquals("Hello_2_2", stringMyLinkedList.get(2));
+        assertEquals(5, stringMyLinkedList.getSize());
     }
 
     @Test
@@ -121,6 +121,19 @@ class MyLinkedListTest {
 
     @Test
     void testRemove() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertEquals("Hello_3", stringMyLinkedList.remove(2));
+        assertEquals(4, stringMyLinkedList.getSize());
+    }
+
+    @Test
+    void testRemoveLast() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
