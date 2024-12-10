@@ -24,21 +24,21 @@ public class MyArrayList<T> implements CustomList<T>{
         objects[size++] = newObject;
     }
 
-//    public void add(int index, T newObject) {
-//        if (objects.length == size) {
-//            increaseCapacity();
-//        }
-//
-//        if (index == size) {
-//            objects[size] = newObject;
-//        } else {
-//            for (int i = size; i > index; i--) {
-//                objects[i] = objects[i - 1];
-//            }
-//            objects[index] = newObject;
-//        }
-//        size++;
-//    }
+    public void add(int index, T newObject) {
+        if (objects.length == size) {
+            increaseCapacity();
+        }
+
+        if (index == size) {
+            objects[size] = newObject;
+        } else {
+            for (int i = size; i > index; i--) {
+                objects[i] = objects[i - 1];
+            }
+            objects[index] = newObject;
+        }
+        size++;
+    }
 
     public void addSystemCopy(int index, T newObject) {
         if (objects.length == size) {

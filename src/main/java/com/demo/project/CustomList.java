@@ -3,6 +3,8 @@ package com.demo.project;
 public interface CustomList<T> {
     void add(T newObject);
 
+    void add(int index, T newObject);
+
     void clear();
 
     boolean isEmpty();
@@ -12,6 +14,8 @@ public interface CustomList<T> {
     T remove(int index);
 
     T getFirst();
+
+    T getLast();
 
     int getSize();
 
