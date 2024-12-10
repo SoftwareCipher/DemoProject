@@ -16,7 +16,6 @@ public class MyLinkedList<T> implements CustomList<T> {
     private Node<T> tail;
     private int size;
 
-
     @Override
     public void add(T newObject) {
         Node<T> newNode = new Node<>(newObject);
@@ -50,16 +49,25 @@ public class MyLinkedList<T> implements CustomList<T> {
 
     @Override
     public void clear() {
-
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public boolean contains(T element) {
+        Node<T> prev = head;
+        for(int i = 0; i < size - 1; i++){
+            prev = prev.next;
+            if(prev.data == element){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -71,14 +79,14 @@ public class MyLinkedList<T> implements CustomList<T> {
             removeElement = head.data;
             head = head.next;
         }else{
-            Node<T> prev = head; // B
+            Node<T> prev = head;
             for(int i = 0; i < index - 1; i++){
                 prev = prev.next;
             }
 
-            Node<T> nodeToRemove = prev.next; // nodeToRemove = B.next -> (C)
+            Node<T> nodeToRemove = prev.next;
             removeElement = nodeToRemove.data;
-            prev.next = nodeToRemove.next; // B.next = C.next -> (D)
+            prev.next = nodeToRemove.next;
         }
 
         size--;

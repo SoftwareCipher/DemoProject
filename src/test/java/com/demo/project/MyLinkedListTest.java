@@ -7,12 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyLinkedListTest {
 
     @Test
-    void add() {
-
-    }
-
-    @Test
-    void addByIndexFirst() {
+    void testAddByIndexFirst() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
@@ -25,7 +20,7 @@ class MyLinkedListTest {
     }
 
     @Test
-    void addByIndexLast() {
+    void testAddByIndexLast() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
@@ -38,7 +33,7 @@ class MyLinkedListTest {
     }
 
     @Test
-    void addByIndex() {
+    void testAddByIndex() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
@@ -50,25 +45,82 @@ class MyLinkedListTest {
         assertEquals("Hello_2_2", stringMyLinkedList.get(1));
     }
 
-
     @Test
     void testAdd() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        stringMyLinkedList.add("Hello_6");
+
+        assertEquals("Hello_6", stringMyLinkedList.get(5));
+        assertEquals(6, stringMyLinkedList.getSize());
     }
 
     @Test
-    void clear() {
+    void testClear() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertEquals(5, stringMyLinkedList.getSize());
+        assertEquals("Hello_5", stringMyLinkedList.get(4));
+
+        stringMyLinkedList.clear();
+
+        assertEquals(0, stringMyLinkedList.getSize());
     }
 
     @Test
-    void isEmpty() {
+    void testIsEmptyIsFalse() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertFalse(stringMyLinkedList.isEmpty());
     }
 
     @Test
-    void contains() {
+    void testIsEmptyIsTrue() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        assertTrue(stringMyLinkedList.isEmpty());
     }
 
     @Test
-    void remove() {
+    void testContainsElementTrue() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertTrue(stringMyLinkedList.contains("Hello_5"));
+    }
+
+    @Test
+    void testContainsElementFalse() {
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertFalse(stringMyLinkedList.contains("Hello_6"));
+    }
+
+    @Test
+    void testRemove() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
@@ -81,7 +133,7 @@ class MyLinkedListTest {
     }
 
     @Test
-    void getFirst() {
+    void testGetFirst() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");
         stringMyLinkedList.add("Hello_2");
