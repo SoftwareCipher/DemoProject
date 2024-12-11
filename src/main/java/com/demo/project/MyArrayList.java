@@ -119,6 +119,11 @@ public class MyArrayList<T> implements CustomList<T>{
         size = 0;
     }
 
+    @Override
+    public T set(int index, T newObject) {
+        return null;
+    }
+
     public T get(int index) {
         checkIndex(index);
         return (T) objects[index];

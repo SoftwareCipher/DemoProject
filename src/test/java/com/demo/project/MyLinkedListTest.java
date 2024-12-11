@@ -78,6 +78,18 @@ class MyLinkedListTest {
     }
 
     @Test
+    void testSet(){
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
+        stringMyLinkedList.add("Hello_1");
+        stringMyLinkedList.add("Hello_2");
+        stringMyLinkedList.add("Hello_3");
+        stringMyLinkedList.add("Hello_4");
+        stringMyLinkedList.add("Hello_5");
+
+        assertEquals("Hello_3_3", stringMyLinkedList.set(2, "Hello_3_3"));
+    }
+
+    @Test
     void testIsEmptyIsFalse() {
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>();
         stringMyLinkedList.add("Hello_1");

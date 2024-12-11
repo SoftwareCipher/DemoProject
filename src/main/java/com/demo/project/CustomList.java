@@ -7,6 +7,8 @@ public interface CustomList<T> {
 
     void clear();
 
+    T set(int index, T newObject);
+
     boolean isEmpty();
 
     boolean contains(T element);

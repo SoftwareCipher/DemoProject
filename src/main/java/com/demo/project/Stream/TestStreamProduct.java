@@ -145,7 +145,7 @@ public class TestStreamProduct {
                 ));
     }
 
-    public double getAveragePriceInCategory(String category){
+    public double getAveragePriceInCategory(String category) {
         return products.stream()
                 .filter(product -> product.getCategory().equals(category))
                 .map(Product::getPrice)
@@ -154,10 +154,23 @@ public class TestStreamProduct {
                 .orElse(0.0);
     }
 
-    public List<Product> findProductsAboveRating(double ratingThreshold){
+    public List<Product> findProductsAboveRating(double ratingThreshold) {
         return products.stream()
                 .filter(product -> product.getRating() > ratingThreshold)
                 .toList();
     }
 
+    public List<Product> getProductsReleasedInLastNYears(int years) {
+        return products.stream()
+                .filter(product -> product.getReleaseDate().getYear() == years)
+                .toList();
+    }
+
+    public Map<String, Optional<Product>> getMostExpensiveProductByCategory() {
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.maxBy(Comparator.comparing(Product::getPrice))
+                ));
+    }
 }

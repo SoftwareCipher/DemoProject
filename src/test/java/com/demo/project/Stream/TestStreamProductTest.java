@@ -204,4 +204,23 @@ class TestStreamProductTest {
 
         assertEquals(products1, testStreamProduct.findProductsAboveRating(4.6));
     }
+
+    @Test
+    void testGetProductsReleasedInLastNYears(){
+        List<Product> products1 = new ArrayList<>(2);
+        products1.add(products.get(0));
+        products1.add(products.get(2));
+
+        assertEquals(products1,testStreamProduct.getProductsReleasedInLastNYears(2021));
+    }
+
+    @Test
+    void testGetMostExpensiveProductByCategory(){
+        Map<String, Optional<Product>> map = new HashMap<>(3);
+        map.put("Electronics", Optional.of(products.get(1)));
+        map.put("Accessories", Optional.of(products.get(2)));
+        map.put("Home Appliances", Optional.of(products.get(3)));
+
+        assertEquals(map, testStreamProduct.getMostExpensiveProductByCategory());
+    }
 }

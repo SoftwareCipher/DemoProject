@@ -99,19 +99,22 @@ public class Main {
 //                .flatMap(Collection::stream)
 //                .collect(Collectors.toList()));
 
-        List<Human> humans = asList(
-                new Human("Sam", asList("Buddy", "Lucy")),
-                new Human("Bob", asList("Frankie", "Rosie")),
-                new Human("Marta", asList("Simba", "Tilly")));
+//        List<Human> humans = asList(
+//                new Human("Sam", asList("Buddy", "Lucy")),
+//                new Human("Bob", asList("Frankie", "Rosie")),
+//                new Human("Marta", asList("Simba", "Tilly")));
+//
+//        System.out.println(humans);
+//
+//        List<String> petNames = humans.stream()
+//                .map(Human::pets)
+//                .flatMap(Collection::stream)
+//                .toList();
+//
+//        System.out.println(petNames);
 
-        System.out.println(humans);
+        new Thread(() -> System.out.println("Hello from: " + Thread.currentThread().getName())).start();
 
-        List<String> petNames = humans.stream()
-                .map(Human::pets)
-                .flatMap(Collection::stream)
-                .toList();
-
-        System.out.println(petNames);
     }
 
     public static void method(Animal[] animals) {

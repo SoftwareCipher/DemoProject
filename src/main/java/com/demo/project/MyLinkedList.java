@@ -34,10 +34,7 @@ public class MyLinkedList<T> implements CustomList<T> {
     public void add(int index, T newObject) {
         Node<T> newNode = new Node<>(newObject);
 
-        if (size == 0) {
-            head = newNode;
-            tail = newNode;
-        }else if(index == 0){
+        if(index == 0){
             newNode.next = head;
             head = newNode;
         }else if(index == size - 1){
@@ -61,6 +58,16 @@ public class MyLinkedList<T> implements CustomList<T> {
         head = null;
         tail = null;
         size = 0;
+    }
+
+    @Override
+    public T set(int index, T newObject) {
+        Node<T> node = head;
+        for(int i = 0; i < index - 1; i++){
+           node = node.next;
+        }
+        node.data = newObject;
+        return node.data;
     }
 
     @Override
@@ -130,4 +137,6 @@ public class MyLinkedList<T> implements CustomList<T> {
         }
         return current.data;
     }
+
+
 }
