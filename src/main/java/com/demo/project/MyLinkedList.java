@@ -63,7 +63,7 @@ public class MyLinkedList<T> implements CustomList<T> {
     @Override
     public T set(int index, T newObject) {
         Node<T> node = head;
-        for(int i = 0; i < index - 1; i++){
+        for(int i = 0; i < index; i++){
            node = node.next;
         }
         node.data = newObject;
@@ -137,6 +137,4 @@ public class MyLinkedList<T> implements CustomList<T> {
         }
         return current.data;
     }
-
-
 }
