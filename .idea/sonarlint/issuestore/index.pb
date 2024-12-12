@@ -47,3 +47,5 @@ d
 -src/main/java/com/demo/project/MyHashMap.java,8\e\8e0990c673259d5c02dfb23ec4281c9dcdd5527f
 i
 9src/test/java/com/demo/project/Stream/TestStreamTest.java,a\0\a0cee782063d520763ea31c284c09467bf672eeb
+j
+:src/main/java/com/demo/project/Stream/CategorySummary.java,5\1\51b0a513d8325c286ec708311fdf76164857e034

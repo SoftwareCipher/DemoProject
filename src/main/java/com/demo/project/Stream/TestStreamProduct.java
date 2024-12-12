@@ -174,15 +174,31 @@ public class TestStreamProduct {
                 ));
     }
 
-    public BigDecimal getTotalBalance(){
+    public BigDecimal getTotalBalance() {
         return products.stream()
                 .map(Product::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public List<Product> getProductsWithPriceAbove(BigDecimal priceThreshold){
+    public List<Product> getProductsWithPriceAbove(BigDecimal priceThreshold) {
         return products.stream()
                 .filter(product -> product.getPrice().compareTo(priceThreshold) > 0)
                 .toList();
+    }
+
+    public Map<String, CategorySummary> getCategorySummaries() {
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                products1 -> new CategorySummary(
+                                        products1.size(),
+                                        products1.stream()
+                                                .map(Product::getPrice)
+                                                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                                )
+                        )
+                ));
     }
 }

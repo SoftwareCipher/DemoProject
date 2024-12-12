@@ -239,4 +239,14 @@ class TestStreamProductTest {
 
         assertEquals(products1, testStreamProduct.getProductsWithPriceAbove(BigDecimal.valueOf(700)));
     }
+
+    @Test
+    void testGetCategorySummaries(){
+        Map<String, CategorySummary> map = new HashMap<>(3);
+        map.put("Electronics", new CategorySummary(3L, BigDecimal.valueOf(2499.97)));
+        map.put("Accessories", new CategorySummary(1L, BigDecimal.valueOf(199.99)));
+        map.put("Home Appliances", new CategorySummary(1L, BigDecimal.valueOf(49.99)));
+
+        assertEquals(map, testStreamProduct.getCategorySummaries());
+    }
 }
