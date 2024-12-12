@@ -1,11 +1,11 @@
 
 
 java:S1192
-"LDefine a constant instead of duplicating this literal "Electronics" 3 times.(¹¤İ´8ôƒ¸™»2J$ec8a5f8c-6112-4c5c-be7f-8d0576ebb3c5
+"LDefine a constant instead of duplicating this literal "Electronics" 3 times.(¹¤İ´8Ì£Ù»2J$64aec06e-c76c-4a97-955e-3d4c4714d906
 œ
-java:S1104	"TMake products a static final constant or non-public and provide accessors if needed.(¦ØÏúÿÿÿÿ8öƒ¸™»2J$8372fa65-95dc-4c0a-8192-47985aa2b79a
+java:S1104	"TMake products a static final constant or non-public and provide accessors if needed.(¦ØÏúÿÿÿÿ8Î£Ù»2J$979a0a66-46b0-41e8-af08-285311028b3d
 v
-java:S1444	".Make this "public static products" field final(¦ØÏúÿÿÿÿ8÷ƒ¸™»2J$10168f00-9371-43df-b81a-3a18c8142dbe
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8ÿƒ¸™»2J$ed75cffb-cb89-4843-a695-c277ea7c5f02
+java:S1444	".Make this "public static products" field final(¦ØÏúÿÿÿÿ8Î£Ù»2J$663c46cf-dead-4006-9b78-e302cb467016
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8Ğ£Ù»2J$19c44f47-3b85-451f-80a9-6e8b0384a190
 e
-java:S2386	"Make this member "protected".(¦ØÏúÿÿÿÿ8“„¸™»2J$a217f07b-2be8-4130-8e96-41154796593e
+java:S2386	"Make this member "protected".(¦ØÏúÿÿÿÿ8İ£Ù»2J$c4619de0-379a-41dc-9221-8d22abc5cc79

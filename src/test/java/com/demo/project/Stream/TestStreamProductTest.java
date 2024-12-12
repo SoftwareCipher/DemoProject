@@ -223,4 +223,20 @@ class TestStreamProductTest {
 
         assertEquals(map, testStreamProduct.getMostExpensiveProductByCategory());
     }
+
+    @Test
+    void testGetTotalBalance(){
+        BigDecimal totalBalance = BigDecimal.valueOf(2749.95);
+
+        assertEquals(totalBalance, testStreamProduct.getTotalBalance());
+    }
+
+    @Test
+    void testGetProductsWithPriceAbove(){
+        List<Product> products1 = new ArrayList<>(2);
+        products1.add(products.get(0));
+        products1.add(products.get(1));
+
+        assertEquals(products1, testStreamProduct.getProductsWithPriceAbove(BigDecimal.valueOf(700)));
+    }
 }

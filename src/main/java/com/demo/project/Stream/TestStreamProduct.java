@@ -173,4 +173,16 @@ public class TestStreamProduct {
                         Collectors.maxBy(Comparator.comparing(Product::getPrice))
                 ));
     }
+
+    public BigDecimal getTotalBalance(){
+        return products.stream()
+                .map(Product::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public List<Product> getProductsWithPriceAbove(BigDecimal priceThreshold){
+        return products.stream()
+                .filter(product -> product.getPrice().compareTo(priceThreshold) > 0)
+                .toList();
+    }
 }
