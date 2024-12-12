@@ -1,6 +1,7 @@
 package com.demo.project.Stream;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -199,6 +200,28 @@ public class TestStreamProduct {
                                                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                                 )
                         )
+                ));
+    }
+
+    public Map<String, List<Product>> getProductsGroupedByCategorySortedByReleaseDate() {
+        return products.stream()
+                .sorted(Comparator.comparing(Product::getReleaseDate))
+                .collect(
+                        Collectors.groupingBy(Product::getCategory));
+    }
+
+    public Map<String, Double> getAveragePriceByCategoryAbove(BigDecimal priceThreshold){
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.averagingDouble(product -> product.getPrice().doubleValue())
+                )).entrySet().stream()
+                .filter(entry -> BigDecimal.valueOf(entry.getValue()).compareTo(priceThreshold) > 0)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        entry -> BigDecimal.valueOf(entry.getValue())
+                                .setScale(2, RoundingMode.HALF_UP)
+                                .doubleValue()
                 ));
     }
 }

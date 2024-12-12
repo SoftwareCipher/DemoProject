@@ -249,4 +249,23 @@ class TestStreamProductTest {
 
         assertEquals(map, testStreamProduct.getCategorySummaries());
     }
+
+    @Test
+    void testGetProductsGroupedByCategorySortedByReleaseDate(){
+        Map<String, List<Product>> map = new HashMap<>(3);
+        map.put("Electronics", List.of(products.get(1), products.get(4), products.get(0)));
+        map.put("Accessories", List.of(products.get(2)));
+        map.put("Home Appliances", List.of(products.get(3)));
+
+        assertEquals(map, testStreamProduct.getProductsGroupedByCategorySortedByReleaseDate());
+    }
+
+    @Test
+    void testGetAveragePriceByCategoryAbove(){
+        Map<String, Double> map = new HashMap<>(2);
+        map.put("Accessories", 199.99);
+        map.put("Electronics", 833.32);
+
+        assertEquals(map, testStreamProduct.getAveragePriceByCategoryAbove(BigDecimal.valueOf(100)));
+    }
 }
