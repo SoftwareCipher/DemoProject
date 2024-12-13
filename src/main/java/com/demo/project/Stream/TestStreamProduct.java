@@ -210,7 +210,7 @@ public class TestStreamProduct {
                         Collectors.groupingBy(Product::getCategory));
     }
 
-    public Map<String, Double> getAveragePriceByCategoryAbove(BigDecimal priceThreshold){
+    public Map<String, Double> getAveragePriceByCategoryAbove(BigDecimal priceThreshold) {
         return products.stream()
                 .collect(Collectors.groupingBy(
                         Product::getCategory,
@@ -223,5 +223,15 @@ public class TestStreamProduct {
                                 .setScale(2, RoundingMode.HALF_UP)
                                 .doubleValue()
                 ));
+    }
+
+    public Optional<String> getCategoryWithHighestTotalPrice() {
+        return products.stream()
+                .collect(Collectors.groupingBy(
+                        Product::getCategory,
+                        Collectors.reducing(BigDecimal.ZERO, Product::getPrice, BigDecimal::add)
+                )).entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey);
     }
 }

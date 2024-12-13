@@ -268,4 +268,11 @@ class TestStreamProductTest {
 
         assertEquals(map, testStreamProduct.getAveragePriceByCategoryAbove(BigDecimal.valueOf(100)));
     }
+
+    @Test
+    void testGetCategoryWithHighestTotalPrice(){
+        Optional<String> product = Optional.of("Electronics");
+
+        assertEquals(product, testStreamProduct.getCategoryWithHighestTotalPrice());
+    }
 }
