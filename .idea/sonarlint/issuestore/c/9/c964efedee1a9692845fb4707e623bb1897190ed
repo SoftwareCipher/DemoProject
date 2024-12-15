@@ -1,13 +1,13 @@
 
-œ
-java:S1104"TMake accounts a static final constant or non-public and provide accessors if needed.(àÔ•ıÿÿÿÿ8Éè‚¿¹2J$ca487aad-7ec1-4122-a00d-91f5b8c6e8e4
 v
-java:S1444".Make this "public static accounts" field final(àÔ•ıÿÿÿÿ8Êè‚¿¹2J$3fd00296-db41-4246-a97c-e19a483a01c8
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8×”ÅË¹2J$7f8c197a-1e4c-4c90-be3f-7f246d5ebbff
-e
-java:S2386"Make this member "protected".(àÔ•ıÿÿÿÿ8ÿÀ…ë¹2J$5fa0e507-3247-4314-ad0a-418f5cc7be1f
-u
-java:S1135:"2Complete the task associated to this TODO comment.(…ïœ†8Şè‚¿¹2J$a6590988-ddb8-4f4a-9ff6-de3b8c9ae210
-~	java:S125<"<This block of commented-out lines of code should be removed.(áŒº 8Şè‚¿¹2J$9893b371-e00f-4108-bc2f-023124d50803
-ƒ	java:S125s"<This block of commented-out lines of code should be removed.(•œâùÿÿÿÿ8âè‚¿¹2J$ad5d44fe-5506-4977-bad9-10e151bdaa54
-„	java:S125¶"<This block of commented-out lines of code should be removed.(øê…µşÿÿÿÿ8æè‚¿¹2J$a7a543af-fb0a-4864-bfc2-23cb3951437d
+java:S1104"TMake accounts a static final constant or non-public and provide accessors if needed.(àÔ•ıÿÿÿÿ8¹çÂĞ¼2
+P
+java:S1444".Make this "public static accounts" field final(àÔ•ıÿÿÿÿ8ºçÂĞ¼2
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8¿çÂĞ¼2
+?
+java:S2386"Make this member "protected".(àÔ•ıÿÿÿÿ8ÓçÂĞ¼2
+O
+java:S1135:"2Complete the task associated to this TODO comment.(…ïœ†8áçÂĞ¼2
+X	java:S125<"<This block of commented-out lines of code should be removed.(áŒº 8áçÂĞ¼2
+]	java:S125s"<This block of commented-out lines of code should be removed.(•œâùÿÿÿÿ8êçÂĞ¼2
+^	java:S125¶"<This block of commented-out lines of code should be removed.(øê…µşÿÿÿÿ8õçÂĞ¼2

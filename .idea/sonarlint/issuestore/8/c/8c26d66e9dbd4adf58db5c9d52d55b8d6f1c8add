@@ -1,0 +1,49 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(˜†À£ûÿÿÿÿ8’ªˆĞ¼2J$f3c908f7-9b86-474a-b58f-9f8d972e6770
+}
+java:S1118
+":Add a private constructor to hide the implicit public one.(‡¸‡8–ªˆĞ¼2J$08e5192e-bcf1-41b2-aaff-5288953106dd
+o
+java:S1172",Remove this unused method parameter "users".(åà§8˜ªˆĞ¼2J$6d8a7b2d-4e24-417a-a684-b70414fd742e
+n
+java:S1168"+Return an empty collection instead of null.(¥¹ï8 ªˆĞ¼2J$110180ff-3a52-4190-a892-5cf0d5774ebb
+y
+java:S1172#"6Remove these unused method parameters "users", "year".(¨ÃŒ·8™ªˆĞ¼2J$64e66983-5696-43a9-aa08-cf7ff2647ad2
+n
+java:S1168$"+Return an empty collection instead of null.(¥¹ï8£ªˆĞ¼2J$6629b0a9-1820-4cac-95e6-9685532f99b2
+|
+java:S3400."9Remove this method and declare a constant for this value.(”·³›8šªˆĞ¼2J$d034bd7f-87bb-43cc-81ff-804ccf0175a9
+t
+java:S1172-",Remove this unused method parameter "users".(ÊÉ¦êøÿÿÿÿ8šªˆĞ¼2J$8c775777-ae16-4a65-9de8-cb988ab7b4ab
+t
+java:S11727",Remove this unused method parameter "users".(ÔŒ¨ªıÿÿÿÿ8›ªˆĞ¼2J$db846513-14e2-4e7e-9f54-9818fdbd8f46
+A
+java:S11688"$Return an empty map instead of null.(¥¹ï8Û³äØ¼2
+t
+java:S1172A",Remove this unused method parameter "users".(Ã £°ûÿÿÿÿ8œªˆĞ¼2J$1420288c-012d-4755-b8b6-fb4ff97899c2
+H
+java:S1168B"+Return an empty collection instead of null.(¥¹ï8Ü³äØ¼2
+t
+java:S1172K",Remove this unused method parameter "users".(ü¥ÖŸûÿÿÿÿ8œªˆĞ¼2J$4c6e3471-92c4-4c90-b550-9d37cd701e57
+A
+java:S1168L"$Return an empty map instead of null.(¥¹ï8İ³äØ¼2
+t
+java:S1172U",Remove this unused method parameter "users".(ì•š¥ûÿÿÿÿ8¡ªˆĞ¼2J$b8c8818c-7791-4f36-8661-57c83b796382
+H
+java:S1168V"+Return an empty collection instead of null.(¥¹ï8Ş³äØ¼2
+{
+java:S3400a"9Remove this method and declare a constant for this value.(¸®Ã'8¡ªˆĞ¼2J$b4e07bef-b400-4e52-8c09-709ccb41e35e
+
+java:S1172`"7Remove these unused method parameters "users", "email".(¨©ûÆùÿÿÿÿ8¢ªˆĞ¼2J$78c59ec7-a6fc-4f59-a90e-e498a7322b4a
+…
+java:S1172r"BRemove these unused method parameters "users", "page", "pageSize".(ıêĞà8¢ªˆĞ¼2J$17cf9988-1a66-49c5-a242-5054a28c08b5
+H
+java:S1168s"+Return an empty collection instead of null.(¥¹ï8ß³äØ¼2
+o
+java:S1172|",Remove this unused method parameter "users".(“İ8£ªˆĞ¼2J$7512e219-41f6-4ce5-be81-c2160c588624
+A
+java:S1168}"$Return an empty map instead of null.(¥¹ï8à³äØ¼2
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ÚìÂ8à³äØ¼2
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(¹ï š8à³äØ¼2

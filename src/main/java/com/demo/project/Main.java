@@ -3,8 +3,8 @@ package com.demo.project;
 import com.demo.project.Stream.Human;
 import demo.project.model.Animal;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
 
@@ -113,8 +113,32 @@ public class Main {
 //
 //        System.out.println(petNames);
 
-        new Thread(() -> System.out.println("Hello from: " + Thread.currentThread().getName())).start();
+//        new Thread(() -> System.out.println("Hello from: " + Thread.currentThread().getName())).start();
 
+//        String txt = "geeksforgeeks";
+//        String pat = "eks";
+//
+//        System.out.println(IntStream.iterate(txt.indexOf(pat),
+//                        i -> i != -1,
+//                        i -> txt.indexOf(pat, i + 1))
+//                .count());
+//
+//        List<String> strings = new LinkedList<>();
+//        strings.add("Heello");
+//        strings.add("Heello1");
+//        strings.add("Heello2");
+//        strings.add("Heello3");
+//        strings.add("Heello4");
+//
+//        System.out.println();
+
+        int[] array = new int[1000];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+
+        long sum = Arrays.stream(array).parallel().sum();
+        System.out.println("Sum: " + sum);
     }
 
     public static void method(Animal[] animals) {

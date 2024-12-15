@@ -55,3 +55,13 @@ f
 6src/main/java/com/demo/project/Stream/StreamOrder.java,a\8\a81bdead3748e9f6db201167c744ecb49bc3e9c1
 j
 :src/test/java/com/demo/project/Stream/StreamOrderTest.java,d\5\d5b2776703814fe998e4b04305bd9cd8864b705f
+_
+/src/main/java/com/demo/project/ForkJoinSum.java,8\b\8b79e1e28cdc795d466b339b6ce3836adc55e2fe
+i
+9src/test/java/com/demo/project/Stream/StreamTaskTest.java,1\9\19846834cf36aef8625b032716402a87d142a264
+o
+?src/main/java/com/demo/project/Stream/JavaProStream/UserDB.java,e\5\e5b3f7bc5e36efd9ce79faabd7b2d8e8494469df
+p
+@src/main/java/com/demo/project/Stream/JavaProStream/UserDTO.java,d\d\ddd5d021cb01983beb0861d8343596b5b4771ddf
+s
+Csrc/main/java/com/demo/project/Stream/JavaProStream/StreamTask.java,8\c\8c26d66e9dbd4adf58db5c9d52d55b8d6f1c8add
