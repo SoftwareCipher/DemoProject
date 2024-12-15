@@ -36,7 +36,7 @@ public class ForkJoinSum extends RecursiveTask<Long> {
     }
 
     public static void main(String[] args) {
-        long[] numbers = new long[10_000_000];
+        long[] numbers = new long[100_000_000];
         for(int i = 0; i < numbers.length; i++) {
             numbers[i] = i + 1;
         }
@@ -48,20 +48,6 @@ public class ForkJoinSum extends RecursiveTask<Long> {
         long parallelSum = pool.invoke(task);
         long endTime = System.currentTimeMillis();
         System.out.println("Parallel sum: " + parallelSum);
-        System.out.println("Parallel time: " + (endTime - startTime) + " ms");
-
-
-        startTime = System.currentTimeMillis();
-        long singleThreadSum = calculateSumSingleThread(numbers);
-        endTime = System.currentTimeMillis();
-        System.out.println("Single-threaded sum: " + singleThreadSum);
-        System.out.println("Single-threaded time: " + (endTime - startTime) + " ms");
-
-
-        startTime = System.currentTimeMillis();
-        long sum = Arrays.stream(numbers).parallel().sum();
-        endTime = System.currentTimeMillis();
-        System.out.println("Parallel sum: " + sum);
         System.out.println("Parallel time: " + (endTime - startTime) + " ms");
     }
 

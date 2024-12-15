@@ -3,26 +3,18 @@ package com.demo.project.Stream.JavaProStream;
 import com.demo.project.Stream.JavaProStream.UserDB;
 import com.demo.project.Stream.JavaProStream.UserDTO;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class StreamTask {
-    /**
-     * <p>Популярні завдання для закріплення теорії з тем про функціональне програмування, функціональні інтерфейси
-     * та Stream API. 10 задач, які містять практичне застосування всіх важливих методів з інтерфейсу Stream.</p>
-     * <p>Початкова реалізація задач відповідно до типу повертаємого значення повертає null, 0d або false.</p>
-     * <p>Успішним результатом виконання завдання є проходження всіх тестів з класу StreamTaskTest.</p>
-     */
-    /**
-     * Перетворення об'єкта одного типу даних в інший. Існує модель, що містить усю інформацію про користувача,
-     * яка лежить в базі даних, а є модель, яку потрібно передати на клієнтську частину - без пароля та email-у.
-     *
-     * @param users колекція користувачів з БД.
-     * @return колекція моделей користувачів для клієнта.
-     */
+
     public static List<UserDTO> userDBToUserDTO(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .map(userDB -> new UserDTO(userDB.getUsername(), userDB.getFirstName(), userDB.getLastName(),
+                        userDB.getCity(), userDB.getCountry(), userDB.getBirthdayYear()))
+                .toList();
     }
 
     /**
@@ -33,7 +25,9 @@ public class StreamTask {
      * @return колекція користувачів, що відповідає умові.
      */
     public static List<UserDB> findUsersByYear(final List<UserDB> users, final int year) {
-        return null;
+        return users.stream()
+                .filter(userDB -> userDB.getBirthdayYear() == year)
+                .toList();
     }
 
     /**
@@ -43,7 +37,10 @@ public class StreamTask {
      * @return середнє арифметичне віку або -1, якщо колекція пуста.
      */
     public static double getAverageUsersAge(final List<UserDB> users) {
-        return 0;
+        return users.stream()
+                .mapToDouble(user -> LocalDate.now().getYear() - user.getBirthdayYear())
+                .average()
+                .orElse(-1.0);
     }
 
     /**
@@ -53,7 +50,10 @@ public class StreamTask {
      * @return хеш-таблиця, ключ якої - країна, а значення - список користувачів з відповідної країни.
      */
     public static Map<String, List<UserDB>> groupUsersByCountry(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .collect(Collectors.groupingBy(
+                        UserDB::getCountry
+                ));
     }
 
     /**
@@ -63,7 +63,10 @@ public class StreamTask {
      * @return відсортовані три користувачі у списку.
      */
     public static List<UserDB> sortByLastNameAndReturnFirstThree(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .sorted(Comparator.comparing(UserDB::getLastName))
+                .limit(3)
+                .toList();
     }
 
     /**
@@ -73,7 +76,12 @@ public class StreamTask {
      * @return хеш-таблиця, ключ якої - рік, а значення - відсортовані прізвища.
      */
     public static Map<Integer, Set<String>> groupSortedLastNamesByYear(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .collect(Collectors.groupingBy(
+                        UserDB::getBirthdayYear,
+                        Collectors.mapping(UserDB::getLastName,
+                                Collectors.toCollection(TreeSet::new))
+                ));
     }
 
     /**
@@ -83,7 +91,9 @@ public class StreamTask {
      * @return колекція відсортованих користувачів.
      */
     public static List<UserDB> sortByFirstNameAndLastName(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .sorted(Comparator.comparing(UserDB::getFirstName).thenComparing(UserDB::getLastName))
+                .toList();
     }
 
     /**
@@ -94,7 +104,8 @@ public class StreamTask {
      * @return true - якщо такий користувач наявний, false - інакше.
      */
     public static boolean isUserWithEmailExists(final List<UserDB> users, final String email) {
-        return false;
+        return users.stream()
+                .anyMatch(userDB -> userDB.getEmail().equals(email));
     }
 
     /**
@@ -112,7 +123,10 @@ public class StreamTask {
      * @return визначена кількість елементів визначеної сторінки.
      */
     public static List<UserDB> returnPageWithSize(final List<UserDB> users, final int page, final int pageSize) {
-        return null;
+        return users.stream()
+                .skip((long) page * pageSize)
+                .limit(pageSize)
+                .toList();
     }
 
     /**
@@ -122,6 +136,9 @@ public class StreamTask {
      * @return хеш-таблиця, ключ якої - символ (літера), а значення - її кількість в усіх прізвищах.
      */
     public static Map<Character, Long> getCharsFrequencyFromLastName(final List<UserDB> users) {
-        return null;
+        return users.stream()
+                .flatMapToInt(userDB -> userDB.getLastName().chars())
+                .mapToObj(character -> (char) character)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
