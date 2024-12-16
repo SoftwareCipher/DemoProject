@@ -1,24 +1,0 @@
-
-”	java:S101
-"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ªü÷ÿÿÿÿÿ8É²ıİ¼2J$24fa589e-19f7-4054-be89-6e3263358aed
-ƒ
-java:S2184"@Cast one of the operands of this addition operation to a "long".(Í™±8Ë²ıİ¼2J$9ee42908-4dce-4337-9ee8-38dbf21935ad
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8Ì²ıİ¼2J$38ab7d22-17ad-4b1f-9597-5f6de7a46a1b
-{
-java:S1854"8Remove this useless assignment to local variable "task".(™Ñ¡8¼ëşİ¼2J$3f46a811-93eb-4c99-b1b5-488248ecfec9
-{
-java:S1854"8Remove this useless assignment to local variable "pool".(„°›å8½ëşİ¼2J$86d785c7-d9c1-4e76-87be-6d73ab6c154f
-l
-java:S1481")Remove this unused "pool" local variable.(„°›å8Áëşİ¼2J$5ec82d17-6160-4f62-821b-6519bf84c5ad
-l
-java:S1481")Remove this unused "task" local variable.(™Ñ¡8Âëşİ¼2J$9e39b185-0115-45d1-b8f6-a378070dfb08
-l	java:S106""+Replace this use of System.out by a logger.(ìí>8Ü²ıİ¼2J$872db860-96f2-4acf-b3e2-8fe364389892
-m	java:S106#"+Replace this use of System.out by a logger.(æÓòÆ8Ü²ıİ¼2J$799b52f2-8cb4-4663-9d1e-62b62dfa2352
-s
-java:S1068"+Remove this unused "numbers" private field.(¸ë€àùÿÿÿÿ8õ®ÿİ¼2J$4d453c87-31e6-451b-94fb-70d4f34632fe
-q
-java:S1068")Remove this unused "start" private field.(Ääæ¡øÿÿÿÿ8õ®ÿİ¼2J$5c6d8e9f-1546-4c53-8024-cdb06267b957
-i
-java:S1068"'Remove this unused "end" private field.(‡„ı8õ®ÿİ¼2J$30248c9d-82fd-4e89-aba8-49538219f484
-p
-java:S1068"-Remove this unused "THRESHOLD" private field.(¯ÎĞâ8õ®ÿİ¼2J$0a98b4c4-bb6b-4554-9daf-05c469a56fe2
