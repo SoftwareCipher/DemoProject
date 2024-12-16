@@ -1,12 +1,14 @@
 
-i
-java:S1192"LDefine a constant instead of duplicating this literal "Electronics" 3 times.(Æ¢Ò8ç·¢·¼2
-l
-java:S1192"JDefine a constant instead of duplicating this literal "Completed" 3 times.(¶Îˆ™ıÿÿÿÿ8è·¢·¼2
+
+java:S1192"LDefine a constant instead of duplicating this literal "Electronics" 3 times.(Æ¢Ò8Åºœ½2J$363fad52-6df9-4180-b515-02d1b7d2e01e
+’
+java:S1192"JDefine a constant instead of duplicating this literal "Completed" 3 times.(¶Îˆ™ıÿÿÿÿ8Æºœ½2J$29d36526-aa2a-4eaf-8975-7868b6bd2160
+
+java:S1192"HDefine a constant instead of duplicating this literal "Pending" 3 times.(ë´ïøÿÿÿÿ8Æºœ½2J$d2d4428c-3345-48d9-8484-55541745ebdd
+š
+java:S1104"RMake orders a static final constant or non-public and provide accessors if needed.(äÃª°ûÿÿÿÿ8Çºœ½2J$66314d00-c373-44f6-a97e-a1aed95e834a
 t
-java:S1104	"RMake orders a static final constant or non-public and provide accessors if needed.(äÃª°ûÿÿÿÿ8é·¢·¼2
-N
-java:S1444	",Make this "public static orders" field final(äÃª°ûÿÿÿÿ8é·¢·¼2
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8ê·¢·¼2
-?
-java:S2386	"Make this member "protected".(äÃª°ûÿÿÿÿ8ï·¢·¼2
+java:S1444",Make this "public static orders" field final(äÃª°ûÿÿÿÿ8Çºœ½2J$e582575f-5d17-46df-9bc2-e0dc63cc012f
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(«úÂ8Éºœ½2J$9361585e-d9e5-4199-9d6a-2f4717c919cd
+e
+java:S2386"Make this member "protected".(äÃª°ûÿÿÿÿ8Îºœ½2J$14294615-4b94-47e7-a213-077f757891b4
