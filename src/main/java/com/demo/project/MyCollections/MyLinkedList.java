@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.MyCollections;
 
 public class MyLinkedList<T> implements CustomList<T> {
 

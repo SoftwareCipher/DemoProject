@@ -1,9 +1,9 @@
-package com.demo.project;
+package com.demo.project.MyCollections;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyArrayList<T> implements CustomList<T>{
+public class MyArrayList<T> implements CustomList<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] objects;
     private int size = 0;

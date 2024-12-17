@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.thread;
 
 public class SingleThreadSumMain {
     public static void main(String[] args) {

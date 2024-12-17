@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.MyCollections;
 
 public interface CustomList<T> {
     void add(T newObject);

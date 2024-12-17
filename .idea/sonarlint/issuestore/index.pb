@@ -73,3 +73,11 @@ i
 +src/main/java/com/demo/project/MyStack.java,c\4\c44cf2779916f2698ea93403b00038e0c07cd4a8
 _
 /src/test/java/com/demo/project/MyStackTest.java,5\9\592d0137018cf4ce9943de2b8e8ef5015fcaa5f7
+a
+1src/main/java/com/demo/project/MyCollections.java,3\3\33429e24c883f42f72b76aa025dac50bd4bb0395
+f
+6src/main/java/com/demo/project/thread/ForkJoinSum.java,6\2\62ef4518446252af4a9e451dac2aaefd6b14022a
+^
+.src/main/java/com/demo/project/ArrayDeque.java,e\2\e226d6e5a283c4c330e2bee607414d529c71a787
+m
+=src/main/java/com/demo/project/MyCollections/MyArrayList.java,c\5\c577eb5489c5ec91f18b1405d936d0a601df6acf

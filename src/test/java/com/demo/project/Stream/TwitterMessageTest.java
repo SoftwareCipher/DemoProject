@@ -1,6 +1,5 @@
 package com.demo.project.Stream;
 
-import com.demo.project.Stream.TwitterMessageProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TwitterMessageProcessorTest {
+class TwitterMessageTest {
 
     private TwitterMessageProcessor twitterMessageProcessor;
 
