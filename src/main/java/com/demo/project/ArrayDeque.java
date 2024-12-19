@@ -1,5 +1,6 @@
 package com.demo.project;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.Iterator;
@@ -10,6 +11,8 @@ public class ArrayDeque<T> implements Deque<T> {
     private int head;
     private int tail;
 
+    private int size;
+
     private static final int MIN_INITIAL_CAPACITY = 8;
 
     public ArrayDeque() {
@@ -19,14 +22,37 @@ public class ArrayDeque<T> implements Deque<T> {
     public ArrayDeque(int numElements) {
         elements = new Object[Math.max(MIN_INITIAL_CAPACITY, numElements)];
     }
+
     @Override
     public void addFirst(T t) {
+        if (t == null)
+            throw new NullPointerException();
 
+        head = (head - 1) & (elements.length - 1);
+        elements[head] = t;
+
+        if (head == tail) {
+            doubleCapacity();
+        }
+
+        size++;
+    }
+
+    private void doubleCapacity() {
+        int newCapacity = elements.length * 2;
+        elements = Arrays.copyOf(elements, newCapacity);
     }
 
     @Override
     public void addLast(T t) {
-
+        if (t == null)
+            throw new NullPointerException();
+        tail = (tail + 1) & (elements.length - 1); // кольцевой буфер
+        elements[tail] = t;
+        if (tail == head) {
+            doubleCapacity();
+        }
+        size++;
     }
 
     @Override
@@ -61,12 +87,12 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public T getFirst() {
-        return null;
+        return (T) elements[head];
     }
 
     @Override
     public T getLast() {
-        return null;
+        return (T) elements[tail];
     }
 
     @Override
@@ -166,7 +192,7 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -192,5 +218,12 @@ public class ArrayDeque<T> implements Deque<T> {
     @Override
     public Iterator<T> descendingIterator() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "ArrayDeque{" +
+                "elements=" + Arrays.toString(elements) +
+                '}';
     }
 }
