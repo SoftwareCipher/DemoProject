@@ -139,6 +139,21 @@ public class Main {
 
         long sum = Arrays.stream(array).parallel().sum();
         System.out.println("Sum: " + sum);
+
+
+        ArrayDeque<String> myArrayDeque1 = new ArrayDeque<>();
+        myArrayDeque1.addLast("Hello_1");
+        myArrayDeque1.addLast("Hello_2");
+        myArrayDeque1.addLast("Hello_3");
+        myArrayDeque1.addLast("Hello_4");
+        myArrayDeque1.addLast("Hello_5");
+        myArrayDeque1.addLast("Hello_6");
+        myArrayDeque1.addLast("Hello_7");
+        myArrayDeque1.addLast("Hello_8");
+        myArrayDeque1.addLast("Hello_9");
+        myArrayDeque1.addLast("Hello_10");
+        myArrayDeque1.addFirst("Hello_11");
+        System.out.println(myArrayDeque1.toString());
     }
 
     public static void method(Animal[] animals) {

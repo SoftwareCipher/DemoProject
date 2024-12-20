@@ -5,69 +5,78 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T> {
+public class MyArrayDeque<T> implements Deque<T> {
 
-    private Object[] elements;
+    private T[] elements;
     private int head;
     private int tail;
 
     private int size;
 
-    private static final int MIN_INITIAL_CAPACITY = 8;
-
-    public ArrayDeque() {
-        elements = new Object[MIN_INITIAL_CAPACITY];
+    private static final int DEFAULT_CAPACITY = 10;
+    public MyArrayDeque() {
+        elements = (T[]) new Object[DEFAULT_CAPACITY];
+        head = 0;
+        tail = 0;
+        size = 0;
     }
 
-    public ArrayDeque(int numElements) {
-        elements = new Object[Math.max(MIN_INITIAL_CAPACITY, numElements)];
-    }
-
-    @Override
-    public void addFirst(T t) {
-        if (t == null)
-            throw new NullPointerException();
-
-        head = (head - 1) & (elements.length - 1);
-        elements[head] = t;
-
-        if (head == tail) {
-            doubleCapacity();
-        }
-
-        size++;
+    public MyArrayDeque(int numElements) {
+        elements = (T[]) new Object[Math.max(DEFAULT_CAPACITY, numElements)];
     }
 
     private void doubleCapacity() {
-        int newCapacity = elements.length * 2;
-        elements = Arrays.copyOf(elements, newCapacity);
+        if (size == elements.length) {
+            int r = elements.length - head;
+            T[] newElements = (T[]) new Object[elements.length * 2];
+            System.arraycopy(elements, head, newElements, 0, r);
+            elements = newElements;
+            head = 0;
+            tail = size;
+        }
+    }
+    @Override
+    public void addFirst(T t) {
+        doubleCapacity();
+        head = (head - 1 + elements.length) % elements.length;
+        elements[head] = t;
+        size++;
     }
 
     @Override
     public void addLast(T t) {
-        if (t == null)
-            throw new NullPointerException();
-        tail = (tail + 1) & (elements.length - 1); // кольцевой буфер
+        doubleCapacity();
         elements[tail] = t;
-        if (tail == head) {
-            doubleCapacity();
-        }
+        tail = (tail + 1) % elements.length; // кольцевой буфер
         size++;
     }
 
     @Override
     public boolean offerFirst(T t) {
-        return false;
+        try {
+            addFirst(t);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public boolean offerLast(T t) {
-        return false;
+        try {
+            addLast(t);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public T removeFirst() {
-        return null;
+        T removeElement = (T) elements[head];
+        elements[head] = null;
+        head = (head + 1) & (elements.length - 1);
+        return removeElement;
     }
 
     @Override
@@ -92,7 +101,7 @@ public class ArrayDeque<T> implements Deque<T> {
 
     @Override
     public T getLast() {
-        return (T) elements[tail];
+        return (T) elements[size - 1];
     }
 
     @Override
