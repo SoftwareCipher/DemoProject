@@ -159,17 +159,13 @@ public class Main {
 //        System.out.println(myArrayDeque1.toString());
 
         Student s1 = new Student(211,"ravi");
-        FileOutputStream fout=new FileOutputStream("demo.txt");
-        ObjectOutputStream out=new ObjectOutputStream(fout);
-
-
-
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("demo.txt"));
         out.writeObject(s1);
         out.flush();
         out.close();
         System.out.println("success");
 
-
+//
         try(ObjectInputStream in=new ObjectInputStream(new FileInputStream("demo.txt"))){
             Student s=(Student)in.readObject();
             System.out.println(s.id+" "+s.name);
