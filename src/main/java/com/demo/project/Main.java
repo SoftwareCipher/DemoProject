@@ -2,13 +2,16 @@ package com.demo.project;
 
 import com.demo.project.Stream.Human;
 import demo.project.model.Animal;
+import lombok.SneakyThrows;
 
+import java.io.*;
 import java.util.*;
 import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
 
 public class Main {
+    @SneakyThrows
     public static void main(String[] args) {
 //        ArrayList<Integer> arr = new ArrayList<>();
 //        int age = 10;
@@ -132,28 +135,45 @@ public class Main {
 //
 //        System.out.println();
 
-        int[] array = new int[1000];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
-        }
+//        int[] array = new int[1000];
+//        for (int i = 0; i < array.length; i++) {
+//            array[i] = i + 1;
+//        }
+//
+//        long sum = Arrays.stream(array).parallel().sum();
+//        System.out.println("Sum: " + sum);
+//
+//
+//        ArrayDeque<String> myArrayDeque1 = new ArrayDeque<>();
+//        myArrayDeque1.addLast("Hello_1");
+//        myArrayDeque1.addLast("Hello_2");
+//        myArrayDeque1.addLast("Hello_3");
+//        myArrayDeque1.addLast("Hello_4");
+//        myArrayDeque1.addLast("Hello_5");
+//        myArrayDeque1.addLast("Hello_6");
+//        myArrayDeque1.addLast("Hello_7");
+//        myArrayDeque1.addLast("Hello_8");
+//        myArrayDeque1.addLast("Hello_9");
+//        myArrayDeque1.addLast("Hello_10");
+//        myArrayDeque1.addFirst("Hello_11");
+//        System.out.println(myArrayDeque1.toString());
 
-        long sum = Arrays.stream(array).parallel().sum();
-        System.out.println("Sum: " + sum);
+        Student s1 = new Student(211,"ravi");
+        FileOutputStream fout=new FileOutputStream("demo.txt");
+        ObjectOutputStream out=new ObjectOutputStream(fout);
 
 
-        ArrayDeque<String> myArrayDeque1 = new ArrayDeque<>();
-        myArrayDeque1.addLast("Hello_1");
-        myArrayDeque1.addLast("Hello_2");
-        myArrayDeque1.addLast("Hello_3");
-        myArrayDeque1.addLast("Hello_4");
-        myArrayDeque1.addLast("Hello_5");
-        myArrayDeque1.addLast("Hello_6");
-        myArrayDeque1.addLast("Hello_7");
-        myArrayDeque1.addLast("Hello_8");
-        myArrayDeque1.addLast("Hello_9");
-        myArrayDeque1.addLast("Hello_10");
-        myArrayDeque1.addFirst("Hello_11");
-        System.out.println(myArrayDeque1.toString());
+
+        out.writeObject(s1);
+        out.flush();
+        out.close();
+        System.out.println("success");
+
+
+        try(ObjectInputStream in=new ObjectInputStream(new FileInputStream("demo.txt"))){
+            Student s=(Student)in.readObject();
+            System.out.println(s.id+" "+s.name);
+        }catch(Exception e){System.out.println(e);}
     }
 
     public static void method(Animal[] animals) {
