@@ -59,4 +59,13 @@ public class StreamOrder {
                                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                 ));
     }
+
+    public List<Product> getTop3MostExpensiveProducts(){
+        return orders.stream()
+                .flatMap(order -> order.getProducts().stream())
+                .distinct()
+                .sorted(Comparator.comparing(Product::getPrice).reversed())
+                .limit(3)
+                .toList();
+    }
 }

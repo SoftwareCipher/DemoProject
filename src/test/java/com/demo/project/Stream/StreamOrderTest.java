@@ -37,4 +37,15 @@ class StreamOrderTest {
 
         assertEquals(order, streamOrder.getOrderWithHighestTotalValue());
     }
+
+    @Test
+    void testGetTop3MostExpensiveProducts(){
+        List<Product> products = new ArrayList<>();
+        products.add(StreamOrder.orders.get(2).getProducts().getFirst());
+        products.add(StreamOrder.orders.get(0).getProducts().getFirst());
+        products.add(StreamOrder.orders.get(3).getProducts().getFirst());
+
+
+        assertEquals(products, streamOrder.getTop3MostExpensiveProducts());
+    }
 }
