@@ -6,6 +6,8 @@ import lombok.SneakyThrows;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
@@ -158,18 +160,62 @@ public class Main {
 //        myArrayDeque1.addFirst("Hello_11");
 //        System.out.println(myArrayDeque1.toString());
 
-        Student s1 = new Student(211,"ravi");
+
+
+
+
+
+
+
+
+        Student s1 = new Student(211, "ravi");
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("demo.txt"));
         out.writeObject(s1);
         out.flush();
         out.close();
         System.out.println("success");
 
+
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("demo.txt"))) {
+            Student s = (Student) in.readObject();
+            System.out.println(s.id + " " + s.name);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
+//        CompletableFuture.supplyAsync(
+//                        () -> {
+//                            try {
+//                                Thread.sleep(1000);
+//                            } catch (InterruptedException e) {
+//                                throw new RuntimeException(e);
+//                            }
+//                            return "Result";
+//                        }
+//                ).thenApply(String::hashCode)
+//                .thenCompose()
+//                .exceptionally()
+//                .handle()
+//                .thenCombine()
+//                .thenAccept()
 //
-        try(ObjectInputStream in=new ObjectInputStream(new FileInputStream("demo.txt"))){
-            Student s=(Student)in.readObject();
-            System.out.println(s.id+" "+s.name);
-        }catch(Exception e){System.out.println(e);}
+//            Runnable task = () -> {
+//                System.out.println("Hello from virtual thread: " + Thread.currentThread());
+//            };
+//
+//            // Создание и запуск виртуальных потоков
+//            for(int i = 0; i < 100; i++) {
+//                Thread.startVirtualThread(task);
+//            }
+//
+////             Альтернативный способ с использованием ExecutorService
+//            try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+//                for(int i = 0; i < 100; i++) {
+//                    executor.submit(task);
+//                }
+//            }
+
     }
 
     public static void method(Animal[] animals) {
