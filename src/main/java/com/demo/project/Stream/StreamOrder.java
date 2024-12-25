@@ -68,4 +68,10 @@ public class StreamOrder {
                 .limit(3)
                 .toList();
     }
+
+    public List<Order> getOrdersByStatus(String status){
+        return orders.stream()
+                .filter(order -> order.getStatus().equals(status))
+                .toList();
+    }
 }

@@ -48,4 +48,13 @@ class StreamOrderTest {
 
         assertEquals(products, streamOrder.getTop3MostExpensiveProducts());
     }
+
+    @Test
+    void testGetOrdersByStatus(){
+        List<Order> orders1 = new ArrayList<>();
+        orders1.add(orders.get(0));
+        orders1.add(orders.get(3));
+
+        assertEquals(orders1, streamOrder.getOrdersByStatus("Completed"));
+    }
 }
