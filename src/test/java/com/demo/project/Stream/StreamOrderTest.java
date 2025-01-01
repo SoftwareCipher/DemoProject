@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
 
 import static com.demo.project.Stream.StreamOrder.orders;
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,5 +56,15 @@ class StreamOrderTest {
         orders1.add(orders.get(3));
 
         assertEquals(orders1, streamOrder.getOrdersByStatus("Completed"));
+    }
+
+    @Test
+    void testGetAverageRatingByCustomerName(){
+        assertEquals(OptionalDouble.of(4.6), streamOrder.getAverageRatingByCustomerName("Alice Johnson"));
+    }
+
+    @Test
+    void testGetAverageRatingByCustomerName_2(){
+        assertEquals(OptionalDouble.of(4.55), streamOrder.getAverageRatingByCustomerName("Daisy Miller"));
     }
 }

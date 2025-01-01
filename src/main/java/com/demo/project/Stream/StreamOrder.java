@@ -2,10 +2,7 @@ package com.demo.project.Stream;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class StreamOrder {
     public static List<Order> orders = Arrays.asList(
@@ -73,5 +70,13 @@ public class StreamOrder {
         return orders.stream()
                 .filter(order -> order.getStatus().equals(status))
                 .toList();
+    }
+
+    public OptionalDouble getAverageRatingByCustomerName(String customerName){
+        return orders.stream()
+                .filter(order -> order.getCustomerName().equals(customerName))
+                .flatMap(order -> order.getProducts().stream())
+                .mapToDouble(Product::getRating)
+                .average();
     }
 }
