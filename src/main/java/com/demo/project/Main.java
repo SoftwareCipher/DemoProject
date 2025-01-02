@@ -17,6 +17,9 @@ public class Main {
                 }).thenApply(result -> {
                     System.out.println("Transforming result: " + result);
                     return result * 2;
+                }).thenApply(result -> {
+                    System.out.println("Transforming result: " + result);
+                    return result * 2;
                 }).thenCompose(r -> CompletableFuture.supplyAsync(
                         () -> r * 22))
                 .handle((r, ex) -> {
@@ -27,9 +30,11 @@ public class Main {
                 }).thenAccept(result -> {
                     System.out.println("Final result: " + result);
                 });
+
         log.info("Приложение запущено!");
         log.debug("Это отладочное сообщение.");
         log.error("Ошибка: что-то пошло не так.");
+
         System.out.println("Main thread is free to do other things...");
     }
 }
