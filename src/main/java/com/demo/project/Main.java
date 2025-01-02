@@ -27,11 +27,9 @@ public class Main {
                 }).thenAccept(result -> {
                     System.out.println("Final result: " + result);
                 });
-
         log.info("Приложение запущено!");
         log.debug("Это отладочное сообщение.");
         log.error("Ошибка: что-то пошло не так.");
-
         System.out.println("Main thread is free to do other things...");
     }
 }
