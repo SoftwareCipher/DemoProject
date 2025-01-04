@@ -2,6 +2,7 @@ package com.demo.project;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.tinylog.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -44,25 +45,27 @@ public class Main {
 //
 //        System.out.println("Main thread is free to do other things...");
 
+//
+//
+//        Path path = Paths.get("example.txt");
+//        try {
+//            Files.createFile(path);
+//            System.out.println("Файл создан: " + path);
+//        } catch (FileAlreadyExistsException e) {
+//            System.out.println("Файл уже существует.");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-
-        Path path = Paths.get("example.txt");
-        try {
-            Files.createFile(path);
-            System.out.println("Файл создан: " + path);
-        } catch (FileAlreadyExistsException e) {
-            System.out.println("Файл уже существует.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Logger.info("Hello World!");
     }
 }
