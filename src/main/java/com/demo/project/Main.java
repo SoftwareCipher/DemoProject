@@ -3,6 +3,13 @@ package com.demo.project;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.*;
 
 @Slf4j
@@ -36,5 +43,26 @@ public class Main {
 //        log.error("Ошибка: что-то пошло не так.");
 //
 //        System.out.println("Main thread is free to do other things...");
+
+
+
+        Path path = Paths.get("example.txt");
+        try {
+            Files.createFile(path);
+            System.out.println("Файл создан: " + path);
+        } catch (FileAlreadyExistsException e) {
+            System.out.println("Файл уже существует.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
