@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.MyCollections;
 
 public class MyHashMap<K, V> {
     private Node<K, V>[] buckets;

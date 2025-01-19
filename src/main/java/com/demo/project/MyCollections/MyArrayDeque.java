@@ -1,4 +1,4 @@
-package com.demo.project;
+package com.demo.project.MyCollections;
 
 import java.util.Arrays;
 import java.util.Collection;
