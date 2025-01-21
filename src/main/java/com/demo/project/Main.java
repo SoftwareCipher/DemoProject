@@ -72,29 +72,29 @@ public class Main {
 
 
 
-//        ArrayList<Person> people = new ArrayList<>();
-//        people.add(new Person("Alice", 30));
-//        people.add(new Person("Bob", 25));
-//        people.add(new Person("Charlie", 35));
-//
-//
-//        Collections.sort(people, new SortByNameComparator());
-
-        // Сортировка с использованием естественного порядка
-//        Collections.sort(people);
-
-//        System.out.println("Sorted by age:");
-//        for (Person person : people) {
-//            System.out.println(person);
-//        }
+        ArrayList<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", 30));
+        people.add(new Person("Bob", 25));
+        people.add(new Person("Charlie", 35));
 
 
-        String[] data = {"apple", "banana", "cherry"};
-        MyCollection<String> collection = new MyCollection<>(data);
+        Collections.sort(people, new SortByNameComparator());
 
-        for (String item : collection) {
-            System.out.println(item);
+        //Сортировка с использованием естественного порядка
+        Collections.sort(people);
+
+        System.out.println("Sorted by age:");
+        for (Person person : people) {
+            System.out.println(person);
         }
+
+
+//        String[] data = {"apple", "banana", "cherry"};
+//        MyCollection<String> collection = new MyCollection<>(data);
+//
+//        for (String item : collection) {
+//            System.out.println(item);
+//        }
         // Создаем итератор отдельно
 //        MyIterator<String> iterator = new MyIterator<>(collection);
 //
