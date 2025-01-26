@@ -15,13 +15,14 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Slf4j
 public class Main {
 
     @SneakyThrows
     public static void main(String[] args) {
-//
+
 //        CompletableFuture.supplyAsync(() -> {
 //                    System.out.println("Task running in: " + Thread.currentThread().getName());
 //                    return 42;
@@ -45,30 +46,17 @@ public class Main {
 //        log.info("Приложение запущено!");
 //        log.debug("Это отладочное сообщение.");
 //        log.error("Ошибка: что-то пошло не так.");
-//
+
 //        System.out.println("Main thread is free to do other things...");
 
-//
-//
-//        Path path = Paths.get("example.txt");
-//        try {
-//            Files.createFile(path);
-//            System.out.println("Файл создан: " + path);
-//        } catch (FileAlreadyExistsException e) {
-//            System.out.println("Файл уже существует.");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                System.out.println(line);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+        CompletableFuture.supplyAsync(() -> {
+                    return IntStream.generate(() -> ThreadLocalRandom.current().nextInt(1, 100))
+                            .limit(5)
+                            .toArray();
+                })
+                .thenApplyAsync(arr -> IntStream.of(arr).sum())
+                .thenAccept(System.out::println)
+                .join();
 
 //
 //        ArrayList<Person> people = new ArrayList<>();
@@ -102,28 +90,6 @@ public class Main {
 //            System.out.println(iterator.next());
 //        }
 
-        List<Product> products = List.of(
-                new Product("Phone", 800, "Electronics"),
-                new Product("Laptop", 1200, "Electronics"),
-                new Product("Book", 30, "Books"),
-                new Product("Pen", 5, "Stationery"),
-                new Product("Tablet", 300, "Electronics")
-        );
-        List<String> topProducts= products.stream()
-                .filter(product -> product.getPrice() > 100)
-                .sorted((p1, p2) -> Double.compare(p2.getPrice(), p1.getPrice()))
-                .map(product -> product.getName().toUpperCase())
-                .limit(3)
-                .toList();
-        System.out.println(topProducts);
 
-
-        String text = "Java is awesome and Stream API is powerful. Java and API are great.";
-        Map<String, Long> wordCount =
-                Arrays.stream(text.split("\\W+"))
-                        .map(String::toLowerCase)
-                        .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
-
-        System.out.println(wordCount);
     }
 }
