@@ -1,5 +1,6 @@
 package com.demo.project;
 
+import com.demo.project.model.Product;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.tinylog.Logger;
@@ -11,11 +12,9 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.util.*;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class Main {
@@ -71,22 +70,22 @@ public class Main {
 //        }
 
 
-
-        ArrayList<Person> people = new ArrayList<>();
-        people.add(new Person("Alice", 30));
-        people.add(new Person("Bob", 25));
-        people.add(new Person("Charlie", 35));
-
-
-        Collections.sort(people, new SortByNameComparator());
-
-        //Сортировка с использованием естественного порядка
-        Collections.sort(people);
-
-        System.out.println("Sorted by age:");
-        for (Person person : people) {
-            System.out.println(person);
-        }
+//
+//        ArrayList<Person> people = new ArrayList<>();
+//        people.add(new Person("Alice", 30));
+//        people.add(new Person("Bob", 25));
+//        people.add(new Person("Charlie", 35));
+//
+//
+//        Collections.sort(people, new SortByNameComparator());
+//
+//        //Сортировка с использованием естественного порядка
+//        Collections.sort(people);
+//
+//        System.out.println("Sorted by age:");
+//        for (Person person : people) {
+//            System.out.println(person);
+//        }
 
 
 //        String[] data = {"apple", "banana", "cherry"};
@@ -95,12 +94,36 @@ public class Main {
 //        for (String item : collection) {
 //            System.out.println(item);
 //        }
-        // Создаем итератор отдельно
+//
+//        //Создаем итератор отдельно
 //        MyIterator<String> iterator = new MyIterator<>(collection);
 //
 //        while (iterator.hasNext()) {
 //            System.out.println(iterator.next());
 //        }
 
+        List<Product> products = List.of(
+                new Product("Phone", 800, "Electronics"),
+                new Product("Laptop", 1200, "Electronics"),
+                new Product("Book", 30, "Books"),
+                new Product("Pen", 5, "Stationery"),
+                new Product("Tablet", 300, "Electronics")
+        );
+        List<String> topProducts= products.stream()
+                .filter(product -> product.getPrice() > 100)
+                .sorted((p1, p2) -> Double.compare(p2.getPrice(), p1.getPrice()))
+                .map(product -> product.getName().toUpperCase())
+                .limit(3)
+                .toList();
+        System.out.println(topProducts);
+
+
+        String text = "Java is awesome and Stream API is powerful. Java and API are great.";
+        Map<String, Long> wordCount =
+                Arrays.stream(text.split("\\W+"))
+                        .map(String::toLowerCase)
+                        .collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+
+        System.out.println(wordCount);
     }
 }
